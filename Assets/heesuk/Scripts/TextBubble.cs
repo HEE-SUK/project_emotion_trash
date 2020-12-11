@@ -17,14 +17,24 @@ public class TextBubble : MonoBehaviour
     private List<string> dialogs = new List<string>();
 
     private bool isReadyNext = false;
-    public void Init(List<string> _dialogs)
+
+    private void Awake() 
     {
         this.ReadyImage.gameObject.SetActive(false);
+        this.bubbleImage.transform.localScale = Vector3.zero;
+    }
+    
+    public void On(List<string> _dialogs)
+    {
+        this.ReadyImage.gameObject.SetActive(false);
+        this.bubbleImage.DOKill();
+        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        
         this.dialogs = _dialogs;
-
-
         this.StartCoroutine(this.Dialog(this.dialogs));
     }
+
     private void Update() {
         
         if(Input.GetKeyDown(KeyCode.F))
@@ -58,9 +68,18 @@ public class TextBubble : MonoBehaviour
             this.dialogText.text = _text.Substring(0,i);
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(0.5f);
         this.dialogText.text = _text;
         this.isReadyNext = true;
         this.ReadyImage.gameObject.SetActive(true);
-        
+    }
+
+    public void Off()
+    {
+        this.ReadyImage.gameObject.SetActive(false);
+        this.StopAllCoroutines();
+        this.bubbleImage.DOKill();
+        this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
     }
 }

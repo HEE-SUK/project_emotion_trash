@@ -8,18 +8,24 @@ public class HilightBubble : MonoBehaviour
     [SerializeField]
     private Image hilightImage = null;
 
+    private TextBubble textBubble = null;
+    private List<string> dialogs = new List<string>();
     private bool isShown = false;
     private void Awake()
     {
         this.hilightImage.transform.localScale = Vector3.zero;
         this.isShown = false;
     }
+    public void Init(TextBubble _textBubble, List<string> _dialogs)
+    {
+        this.textBubble = _textBubble;
+        this.dialogs = _dialogs;
+    }
 
     public void On()
     {
         if(this.isShown) { return; }
         this.isShown = true;
-        // this.hilightImage.transform.localScale = Vector3.zero;
         this.hilightImage.DOKill();
         this.hilightImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
         this.hilightImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
@@ -37,8 +43,15 @@ public class HilightBubble : MonoBehaviour
             {
                 isKeyDown = true;
                 Debug.Log("텍스트");
+                this.textBubble.On(this.dialogs);
+                break;
             }
         }
+        
+        this.StopAllCoroutines();
+        this.hilightImage.DOKill();
+        this.hilightImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
+        this.hilightImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
     }
 
     public void Off()

@@ -9,9 +9,18 @@ public class NpcHilight : MonoBehaviour
     [SerializeField]
     private HilightBubble hilightBubble = null;
 
+    [SerializeField]
+    private TextBubble textBubble = null;
+
+    [SerializeField]
+    private List<string> dialogs = new List<string>();
     void Start()
     {
-        
+        this.dialogs = new List<string>();
+        this.dialogs.Add("what is this");
+        this.dialogs.Add("this is TextMesh Pro");
+        this.dialogs.Add("oh my god");
+        this.hilightBubble.Init(this.textBubble, this.dialogs);
     }
 
     void Update()
