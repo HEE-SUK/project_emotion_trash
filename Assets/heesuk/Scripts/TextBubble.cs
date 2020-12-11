@@ -27,29 +27,29 @@ public class TextBubble : MonoBehaviour
     public void On(List<string> _dialogs)
     {
         this.ReadyImage.gameObject.SetActive(false);
-        this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
         
         this.dialogs = _dialogs;
         this.StartCoroutine(this.Dialog(this.dialogs));
     }
 
-    private void Update() {
+    // private void Update() {
         
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            this.OnButtonSkip();
-        }
-    }
+    //     if(Input.GetKeyDown(KeyCode.F))
+    //     {
+    //         this.OnButtonSkip();
+    //     }
+    // }
 
-    public void OnButtonSkip()
-    {
-        this.isReadyNext = true;
-    }
+    // public void OnButtonSkip()
+    // {
+    //     if(!this.isReadyNext) { return; }
+    //     // 다음 글
+    // }
     
     private IEnumerator Dialog(List<string> _dialogs)
     {
+        this.bubbleImage.transform.localScale = Vector3.one;
+
         foreach (var dialog in _dialogs)
         {
             // 대화문 리스트만큼 반복
@@ -61,17 +61,33 @@ public class TextBubble : MonoBehaviour
     }
     private IEnumerator Typing(string _text)
     {
+        this.ReadyImage.gameObject.SetActive(false);
+        this.dialogText.text = string.Empty;
+
         yield return new WaitForSeconds(0.5f);
         for(int i = 0; i < _text.Length; i++ )
         {
-            if(this.isReadyNext) break;
             this.dialogText.text = _text.Substring(0,i);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
-        yield return new WaitForSeconds(0.5f);
         this.dialogText.text = _text;
         this.isReadyNext = true;
-        this.ReadyImage.gameObject.SetActive(true);
+        this.ReadyImage.DOKill();
+        this.ReadyImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        
+        // 대기
+        while (true)
+        {
+            yield return new WaitForFixedUpdate();
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                break;
+            }
+        }
+        this.ReadyImage.DOKill();
+        this.ReadyImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
     }
 
     public void Off()

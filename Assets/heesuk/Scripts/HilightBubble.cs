@@ -42,7 +42,6 @@ public class HilightBubble : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && !isKeyDown)
             {
                 isKeyDown = true;
-                Debug.Log("텍스트");
                 this.textBubble.On(this.dialogs);
                 break;
             }
