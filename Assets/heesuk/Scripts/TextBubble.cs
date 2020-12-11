@@ -22,12 +22,8 @@ public class TextBubble : MonoBehaviour
         this.ReadyImage.gameObject.SetActive(false);
         this.dialogs = _dialogs;
 
-        foreach (var dialog in this.dialogs)
-        {
-            // 대화문 리스트만큼 반복
-            this.StartCoroutine(this.Typing(dialog));
-        }
-        // TODO: 전부 읽으면 종료 효과
+
+        this.StartCoroutine(this.Dialog(this.dialogs));
     }
     private void Update() {
         
@@ -42,6 +38,17 @@ public class TextBubble : MonoBehaviour
         this.isReadyNext = true;
     }
     
+    private IEnumerator Dialog(List<string> _dialogs)
+    {
+        foreach (var dialog in _dialogs)
+        {
+            // 대화문 리스트만큼 반복
+            this.isReadyNext = false;
+            yield return this.Typing(dialog);
+            yield return new WaitForFixedUpdate();
+        }
+        EventManager.emit(EVENT_TYPE.START_CHOICE, this);
+    }
     private IEnumerator Typing(string _text)
     {
         yield return new WaitForSeconds(0.5f);

@@ -1,34 +1,7 @@
 fileFormatVersion: 2
-guid: c0e2c73986a1c6442b95f89e1faac247
+guid: 169169b7edb9cbf48a26c7f24b9e7956
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3042933445339870604
-    second: 9a4b92a3aac92db5_0
-  - first:
-      213: 5314985127194498020
-    second: 9a4b92a3aac92db5_1
-  - first:
-      213: -6375723869425652332
-    second: 9a4b92a3aac92db5_2
-  - first:
-      213: 7384068654598820912
-    second: 9a4b92a3aac92db5_3
-  - first:
-      213: 1145041552320922365
-    second: 9a4b92a3aac92db5_4
-  - first:
-      213: 1933021450555059637
-    second: 9a4b92a3aac92db5_5
-  - first:
-      213: -5080925609571774192
-    second: 9a4b92a3aac92db5_6
-  - first:
-      213: -4481991178913021200
-    second: 9a4b92a3aac92db5_7
-  - first:
-      213: -3771514768842775614
-    second: 9a4b92a3aac92db5_8
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -67,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -88,42 +61,6 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

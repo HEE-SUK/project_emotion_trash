@@ -11,23 +11,22 @@ public class UICanvas : MonoBehaviour
     private TextBubble textBubble = null;
     public void Start()
     {
+        EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
+        this.TestTextBubble();
+    }
+
+    public void ShowChoicePanel(EVENT_TYPE EventType, Component Sender, object Param = null)
+    {
         List<string> texts = new List<string>();
         texts.Add("1번 선택");
         texts.Add("2번 선택");
         texts.Add("3번 선택");
         texts.Add("4번 선택");
         texts.Add("5번 선택");
-        // this.choicePanel.Init(texts);
 
-        this.TestTextBubble();
-        EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
+        this.choicePanel.Init(texts);
     }
 
-    public void ShowChoicePanel(EVENT_TYPE EventType, Component Sender, object Param = null)
-    {
-
-    }
-    
     public void TestTextBubble()
     {
         List<string> texts = new List<string>();
