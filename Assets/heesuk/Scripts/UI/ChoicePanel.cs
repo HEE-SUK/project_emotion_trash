@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum EMOTION
+{
+    A,
+    B,
+    C,
+    D,
+    E,
+}
+
 public class ChoicePanel : MonoBehaviour
 {
     [SerializeField]

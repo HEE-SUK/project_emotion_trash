@@ -14,8 +14,8 @@ public class ChoiceButton : MonoBehaviour
     public void Init(string _text, CallbackEvent _callback)
     {
         this.transform.localScale = Vector3.zero;
-        this.transform.DOScaleX(1f, 0.3f);
-        this.transform.DOScaleY(1f, 0.3f).SetDelay(0.1f);
+        this.transform.DOScaleY(1f, 0.3f);
+        this.transform.DOScaleX(1f, 0.3f).SetDelay(0.1f);
 
         this.buttonText.text = _text;
         this.callback = _callback;

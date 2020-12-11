@@ -61,5 +61,6 @@ public class TextBubble : MonoBehaviour
         this.dialogText.text = _text;
         this.isReadyNext = true;
         this.ReadyImage.gameObject.SetActive(true);
+        
     }
 }
