@@ -5,45 +5,13 @@ using UnityEngine;
 public enum EVENT_TYPE {
 
     // UI관련
-    GET_GOLD,
-    GET_EXP,
-    GET_ITEM,
-
-    // 상호작용
-    ON_PAUSE,
-    OFF_PAUSE,
-
-    // 플레이어 관련
-    PLAYER_ATTACK,
-    PLAYER_ATTACKED,
-    PLAYER_SKILL,
-    PLAYER_DEAD,
-    PLAYER_REVIVE,
-
-    // 몬스터 관련
-    MONSTER_DEAD,
-
-    // 플레이 시퀀스
-    GAME_START,
-    GAME_FINISH,
-    GAME_RESTART,
-    GAME_RESULT,
-
-    // 무기 관련
-    CHANGE_WEAPON,
-    CHANGE_RANGE,
-    CHANGE_HELMET,
-
-    USE_WEAPON,
-    READY_WEAPON,
+    START_CHOICE,
+    END_CHOICE,
     
-    GET_SKILL_GAUGE,
+    PLAYER_DEAD,
 
-    // 스폰 관련
-    BOSS_ENTER,
-    BOSS_START,
-    SPAWN_START,
-    SPAWN_FINISH,
+
+
 }
 
 public class EventManager: Singleton<EventManager> 

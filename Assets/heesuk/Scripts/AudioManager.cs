@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public enum SFX
 {
     // UI 상호작용
@@ -44,8 +43,6 @@ public class AudioManager : MonoSingleton<AudioManager>
     }
     private void Start() 
     {
-        Instance.bgmSouce.mute = ES3.Load<bool>("MUTE_BGM", false);
-        Instance.sfxSouce.mute = ES3.Load<bool>("MUTE_SFX", false);
     }
     public static void PlayBgm(BGM _bgmType)
 	{
@@ -67,12 +64,10 @@ public class AudioManager : MonoSingleton<AudioManager>
     public static void OnMuteBgm()
     {
         Instance.bgmSouce.mute = !Instance.bgmSouce.mute;
-        ES3.Save<bool>("MUTE_BGM", Instance.bgmSouce.mute);
     }
     public static void OnMuteSfx()
     {
         Instance.sfxSouce.mute = !Instance.sfxSouce.mute;
-        ES3.Save<bool>("MUTE_SFX", Instance.sfxSouce.mute);
     }
     public static void ChangeBgmVolume(float _value)
     {
