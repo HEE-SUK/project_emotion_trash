@@ -16,10 +16,15 @@ public class HeartPanel : MonoBehaviour
     public void Update_UI(EVENT_TYPE EventType, Component Sender, object Param = null)
     {
         int hp = (int)Param;
+
+        foreach (var item in this.heartImages)
+        {
+            item.gameObject.SetActive(false);   
+        }
         
         for (int i = 0; i < hp; i++)
         {
-            // this.heartImages.
+            this.heartImages[i].gameObject.SetActive(true);
         }
     }
 
