@@ -11,6 +11,8 @@ public class HilightBubble : MonoBehaviour
     private TextBubble textBubble = null;
     private List<string> dialogs = new List<string>();
     private bool isShown = false;
+
+    
     private void Awake()
     {
         this.hilightImage.transform.localScale = Vector3.zero;
@@ -25,6 +27,7 @@ public class HilightBubble : MonoBehaviour
     public void On()
     {
         if(this.isShown) { return; }
+
         this.isShown = true;
         this.hilightImage.DOKill();
         this.hilightImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);

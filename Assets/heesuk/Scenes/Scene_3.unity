@@ -369,16 +369,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8688845294788619902, guid: 005745344a726004fb670ceaab58bf75,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8688845294788619902, guid: 005745344a726004fb670ceaab58bf75,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005745344a726004fb670ceaab58bf75, type: 3}
 --- !u!224 &75159928 stripped
@@ -436,7 +426,7 @@ Transform:
   m_Children:
   - {fileID: 16314814}
   m_Father: {fileID: 842684063}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &238189197
 SpriteRenderer:
@@ -532,7 +522,7 @@ Transform:
   - {fileID: 1602893011}
   - {fileID: 75159928}
   m_Father: {fileID: 842684063}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &413412992
 MonoBehaviour:
@@ -549,7 +539,13 @@ MonoBehaviour:
   Player: {fileID: 238189196}
   hilightBubble: {fileID: 1602893012}
   textBubble: {fileID: 75159929}
-  dialogs: []
+  dialogs:
+  - "\uB358\uC804\uC5D0 \uB4E4\uC5B4\uAC00\uB824\uACE0\uD574"
+  - "\uADFC\uB370 \uBB34\uAE30\uAC00 \uC5C6\uC5B4"
+  - "\uD5E4\uD5F7"
+  - "\uB0B4 \uC815\uC2E0 \uC880 \uBD10!"
+  - "\uC548\uB155?"
+  emotionTypes: 00000000
 --- !u!212 &413412993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -703,7 +699,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 656524444}
-  - {fileID: 1440454852}
   - {fileID: 238189196}
   - {fileID: 413412991}
   m_Father: {fileID: 0}
@@ -824,36 +819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2101276778}
   choicePanel: {fileID: 2464130784285646443}
---- !u!1 &1440454851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1440454852}
-  m_Layer: 0
-  m_Name: TextBubbleParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1440454852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440454851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 842684063}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580483107
 GameObject:
   m_ObjectHideFlags: 0

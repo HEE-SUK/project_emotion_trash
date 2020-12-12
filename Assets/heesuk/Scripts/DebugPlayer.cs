@@ -11,6 +11,9 @@ public class DebugPlayer : MonoBehaviour
 
     void Update()
     {
+        // 대화중 예외처리
+        if(GameManager.Instance.isTalk) { return; }
+        
         if(Input.GetKey(KeyCode.UpArrow))
         {
             this.transform.Translate(new Vector3(0f,0.1f,0f));

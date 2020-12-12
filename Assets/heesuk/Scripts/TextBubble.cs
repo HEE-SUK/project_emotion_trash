@@ -38,11 +38,11 @@ public class TextBubble : MonoBehaviour
     {
         this.bubbleImage.transform.localScale = Vector3.one;
 
-        foreach (var dialog in _dialogs)
+        for (int i = 0; i < _dialogs.Count; i++)
         {
             // 대화문 리스트만큼 반복
             this.isReadyNext = false;
-            yield return this.Typing(dialog);
+            yield return this.Typing(_dialogs[i]);
             yield return new WaitForFixedUpdate();
         }
         EventManager.emit(EVENT_TYPE.START_CHOICE, this);
