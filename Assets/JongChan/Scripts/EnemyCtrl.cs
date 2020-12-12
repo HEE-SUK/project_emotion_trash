@@ -6,13 +6,13 @@ public class EnemyCtrl : MonoBehaviour
 {
     public enum EnemyType
     {
-        enemy1 = 0,
-        enemy2,
-        enemy3,
-        enemy4,
-        enemy5,
-        enemy6,
-        enemy7
+        slime = 0,
+        goblin,
+        bet,
+        earthWorm,
+        cube,
+        ghost,
+        dragon
     }
 
     public EnemyType enemyType;
@@ -36,11 +36,12 @@ public class EnemyCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheakType();
+
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponentInChildren<CircleCollider2D>();
 
         StartCoroutine("ChangeMovement");
-        CheakType();
     }
 
     // Update is called once per frame
@@ -126,25 +127,43 @@ public class EnemyCtrl : MonoBehaviour
     {
         switch(enemyType)
         {
-            case EnemyType.enemy1:
+            case EnemyType.slime:
                 enemyHp = 1;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
-            case EnemyType.enemy2:
+            case EnemyType.goblin:
                 enemyHp = 1;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
-            case EnemyType.enemy3:
+            case EnemyType.bet:
                 enemyHp = 1;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
-            case EnemyType.enemy4:
+            case EnemyType.earthWorm:
+                enemyHp = 1;
+                movePower = 3;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.cube:
+                enemyHp = 1;
+                movePower = 3;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.ghost:
+                enemyHp = 1;
+                movePower = 3;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.dragon:
                 enemyHp = 1;
                 movePower = 3;
                 cc.radius = 5;

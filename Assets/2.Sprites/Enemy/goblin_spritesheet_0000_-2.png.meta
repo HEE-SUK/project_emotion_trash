@@ -1,13 +1,43 @@
 fileFormatVersion: 2
-guid: b91e1af4a30efcd498ba2b850f65d45c
+guid: a1761fc4df7db9c49bead59119c2c874
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -300964590386131379
-    second: "\uACE0\uC2A4\uD2B8_0"
+      213: -3117690425482610192
+    second: goblin_spritesheet_0000_-2_0
   - first:
-      213: -2630751850169417552
-    second: "\uACE0\uC2A4\uD2B8_1"
+      213: -1937530286278795207
+    second: goblin_spritesheet_0000_-2_1
+  - first:
+      213: -228490117934088295
+    second: goblin_spritesheet_0000_-2_2
+  - first:
+      213: -788367244652526588
+    second: goblin_spritesheet_0000_-2_3
+  - first:
+      213: -2852526340883049182
+    second: goblin_spritesheet_0000_-2_4
+  - first:
+      213: 8663291511380268663
+    second: goblin_spritesheet_0000_-2_5
+  - first:
+      213: -8165564209903498961
+    second: goblin_spritesheet_0000_-2_6
+  - first:
+      213: -4658626579689470328
+    second: goblin_spritesheet_0000_-2_7
+  - first:
+      213: -5004423486369756483
+    second: goblin_spritesheet_0000_-2_8
+  - first:
+      213: 5036237815136990293
+    second: goblin_spritesheet_0000_-2_9
+  - first:
+      213: -1277130028977243900
+    second: goblin_spritesheet_0000_-2_10
+  - first:
+      213: -6641171384074039645
+    second: goblin_spritesheet_0000_-2_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,13 +147,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uACE0\uC2A4\uD2B8_0"
+      name: goblin_spritesheet_0000_-2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 21
-        height: 16
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e4014bc42c2dbf0800000000000000
-      internalID: -300964590386131379
+      spriteID: 0f9f875831dbbb4d0800000000000000
+      internalID: -3117690425482610192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uACE0\uC2A4\uD2B8_1"
+      name: goblin_spritesheet_0000_-2_1
       rect:
         serializedVersion: 2
-        x: 21
+        x: 16
         y: 0
-        width: 21
-        height: 16
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +182,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b0437e6121bd7bd0800000000000000
-      internalID: -2630751850169417552
+      spriteID: 930aac858728c15e0800000000000000
+      internalID: -1937530286278795207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spritesheet_0000_-2_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ff9d5c27d34dcf0800000000000000
+      internalID: -228490117934088295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spritesheet_0000_-2_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404ceedfa282f05f0800000000000000
+      internalID: -788367244652526588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spritesheet_0000_-2_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2259833086ac968d0800000000000000
+      internalID: -2852526340883049182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spritesheet_0000_-2_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7765a71cab13a3870800000000000000
+      internalID: 8663291511380268663
       vertices: []
       indices: 
       edges: []
