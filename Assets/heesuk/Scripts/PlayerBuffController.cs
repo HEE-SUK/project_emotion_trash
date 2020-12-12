@@ -69,7 +69,6 @@ public class PlayerBuffController : MonoBehaviour
                 break;
             case STAT.HP:
                 this.playerCtrl.PlayerLife += (int)buff.value;
-                // TODO:
                 break;
             case STAT.DAMAGE:
                 this.swordCtrl.SetWeaponBuff(buff.value);
