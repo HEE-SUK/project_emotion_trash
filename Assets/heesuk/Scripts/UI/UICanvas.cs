@@ -11,6 +11,7 @@ public class UICanvas : MonoBehaviour
     private GameObject gameOverPrefab = null;
     public void Start()
     {
+        AudioManager.SetVolumeBgm(0.3f);
         AudioManager.PlayBgm(BGM.MAIN);
         EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
         EventManager.on(EVENT_TYPE.PLAYER_DEAD, this.ShowGameOverPanel);

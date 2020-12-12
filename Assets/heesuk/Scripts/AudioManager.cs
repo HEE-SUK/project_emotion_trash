@@ -75,14 +75,25 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         Instance.sfxSouce.volume = _value;
     }
+    
     public static float GetVolumeBgm()
     {
         return Instance.bgmSouce.volume;
     }
     public static float GetVolumeSfx()
     {
-        return Instance.bgmSouce.volume;
+        return Instance.sfxSouce.volume;
     }
+
+    public static void SetVolumeBgm(float _value)
+    {
+        Instance.bgmSouce.volume = _value;
+    }
+    public static void SetVolumeSfx(float _value)
+    {
+        Instance.sfxSouce.volume = _value;
+    }
+
     public static bool GetMuteBgm()
     {
         return Instance.bgmSouce.mute;

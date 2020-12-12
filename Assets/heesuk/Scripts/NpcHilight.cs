@@ -10,7 +10,7 @@ public class NpcHilight : MonoBehaviour
     private HilightBubble hilightBubble = null;
 
 
-    // textbubble은 Prefab으로 생성되게하자
+    // textbubble은 Prefab으로 생성되게 하자
     [SerializeField]
     private TextBubble textBubble = null;
 

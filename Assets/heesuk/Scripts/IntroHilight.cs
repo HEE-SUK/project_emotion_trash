@@ -1,0 +1,106 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IntroHilight : MonoBehaviour
+{
+    [SerializeField]
+    private DialogInfo[] info = {};
+
+    public int count = 0;
+    
+    [SerializeField]
+    private Transform Player = null;
+    [SerializeField]
+    private HilightBubble hilightBubble = null;
+    // textbubble은 Prefab으로 생성되게 하자
+
+    [SerializeField]
+    private TextBubble textBubble = null;
+
+
+    // 선택지 관련
+    [SerializeField]
+    private EMOTION[] emotionTypes = {EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A};
+    [SerializeField]
+    private string[] emotionText = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+
+    
+    // void Start()
+    // {
+    //     this.isFinished = false;
+    //     this.hilightBubble.Init(this.textBubble, this.dialogs);
+
+    //     for (int i = 0; i < emotionTypes.Length; i++)
+    //     {
+    //         EMOTION emotion = this.emotionTypes[i];
+    //         string emotionText = this.emotionText[i];
+
+    //         List<string> answers = new List<string>();
+    //         switch (i)
+    //         {
+    //             case 0:
+    //                 foreach (var item in this.answerText0)
+    //                 {
+    //                     answers.Add(item);
+    //                 }
+    //                 break;
+    //             case 1:
+    //                 foreach (var item in this.answerText1)
+    //                 {
+    //                     answers.Add(item);
+    //                 }
+    //                 break;
+    //             case 2:
+    //                 foreach (var item in this.answerText2)
+    //                 {
+    //                     answers.Add(item);
+    //                 }
+    //                 break;
+    //             case 3:
+    //                 foreach (var item in this.answerText3)
+    //                 {
+    //                     answers.Add(item);
+    //                 }
+    //                 break;
+    //             case 4:
+    //                 foreach (var item in this.answerText4)
+    //                 {
+    //                     answers.Add(item);
+    //                 }
+    //                 break;
+    //         }
+
+    //         STAT stat = this.statTypes[i];
+    //         float value = this.statValues[i];
+    //         string statText = this.statTexts[i];
+    //         Vector3 position = this.transform.position;
+    //         this.choices.Add(new Choice(emotion, emotionText, () => {
+
+    //             this.textBubble.Answer(answers, new Buff(stat, value, statText));
+    //             this.Finish();
+    //         }, position));
+    //     }
+    // }
+
+    // private void Finish()
+    // {
+    //     this.isFinished = true;
+    // }
+
+    // void Update()
+    // {
+    //     // 대화중 예외처리
+    //     if(GameManager.Instance.isTalk || this.isFinished) { return; }
+
+    //     float distance = (this.Player.transform.localPosition - this.transform.localPosition).magnitude;
+    //     if(distance < 2f)
+    //     {
+    //         this.hilightBubble.On(this.choices);
+    //     }
+    //     else
+    //     {
+    //         this.hilightBubble.Off();
+    //     }
+    // }
+}
