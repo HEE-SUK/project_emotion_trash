@@ -9,8 +9,9 @@ public class PlayerCtrl : MonoBehaviour
 
     public float moveSpeed;
     public float jumpPower;
-    float isjump = 2;
-    float PlayerLife = 3;
+    public int originjump = 1;
+    private int isjump = 0;
+    public int PlayerLife = 3;
 
     void Start()
     {
@@ -82,7 +83,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (col.collider.CompareTag("Ground"))
         {
-            isjump = 2;
+            this.isjump = this.originjump;
         }
 
         if (col.collider.CompareTag("Enemy"))

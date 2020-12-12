@@ -58,9 +58,11 @@ public class PlayerBuffController : MonoBehaviour
                 break;
             case STAT.JUMP_COUNT:
                 this.messageText.text = $"점프 횟수 + {buff.value}";
+                this.playerCtrl.originjump += (int)buff.value;
                 break;
             case STAT.HP:
                 this.messageText.text = $"체력 + {buff.value}";
+                this.playerCtrl.PlayerLife += (int)buff.value;
                 // TODO:
                 break;
             case STAT.DAMAGE:
@@ -70,7 +72,7 @@ public class PlayerBuffController : MonoBehaviour
             case STAT.WEAPON_CHANGE:
                 Weapon weapoonType = (Weapon)(int)buff.value;
 
-                this.messageText.text = $"무기 변경 [{value}]";
+                this.messageText.text = $"무기 변경 [{this.weaponNames[(int)weapoonType]}]";
                 this.swordCtrl.weapon = weapoonType;
                 this.swordCtrl.WeaponSelect();
                 break;
