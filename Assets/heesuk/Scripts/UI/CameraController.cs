@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
         this.transform.DOKill();
         this.transform.DOLocalMove(targetPosition,0.4f);
         this.mainCamera.orthographicSize = this.originSize;
-        this.mainCamera.DOOrthoSize(this.endSize, 0.5f).SetEase(Ease.OutBack).SetUpdate(true).OnComplete(() => {
+        this.mainCamera.DOOrthoSize(this.endSize, 1f).SetEase(Ease.OutBack).SetUpdate(true).OnComplete(() => {
             SceneManager.LoadScene(GameManager.Instance.nextSceneName);
         });
     }
