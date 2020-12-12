@@ -9,7 +9,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public float moveSpeed;
     public float jumpPower;
-    public int originjump = 1;
+    public int originjump = 2;
     private int isjump = 0;
     public int PlayerLife = 3;
 
@@ -50,7 +50,7 @@ public class PlayerCtrl : MonoBehaviour
         else if (rb.velocity.x < moveSpeed * (-1))
             rb.velocity = new Vector2(moveSpeed * (-1), rb.velocity.y);
 
-        if (isjump > 0)
+        if (isjump >= 0)
         {
             if (Input.GetButtonDown("Jump"))
             {
