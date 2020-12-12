@@ -38,7 +38,9 @@ public class SwordCtrl : MonoBehaviour
 
     void Start()
     {
-        this.weaponBuff = 1f;
+        WeaponSelect();
+
+        //this.weaponBuff = 1f;
 
         bc = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
@@ -52,7 +54,6 @@ public class SwordCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WeaponSelect();
 
         delayTime += Time.deltaTime;
 
@@ -75,21 +76,22 @@ public class SwordCtrl : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Enemy"))
-        {
-            // 공격 데미지 * 무기 버프
-            EnemyCtrl.Instance.enemyHp -= weaponDamage * this.weaponBuff;
-            Debug.Log("fdsa");
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if (col.CompareTag("Enemy"))
+    //    {
+    //        // 공격 데미지 * 무기 버프
+    //        EnemyCtrl.Instance.enemyHp -= weaponDamage * this.weaponBuff;
+            
+    //        Debug.Log("fdsa");
+    //    }
+    //}
 
     void BoxColliderOn()
     {
         bc.enabled = false;
-        bc.size = new Vector2(3f, 2f);
-        bc.offset = new Vector2(-1.2f, 0f);
+        //bc.size = new Vector2(3f, 2f);
+        //bc.offset = new Vector2(-1.2f, 0f);
         anim.SetBool("isAttack", false);
     }
 
