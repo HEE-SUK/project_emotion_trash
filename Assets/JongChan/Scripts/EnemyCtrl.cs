@@ -9,7 +9,10 @@ public class EnemyCtrl : MonoBehaviour
         enemy1 = 0,
         enemy2,
         enemy3,
-        enemy4
+        enemy4,
+        enemy5,
+        enemy6,
+        enemy7
     }
 
     public EnemyType enemyType;

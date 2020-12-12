@@ -34,8 +34,8 @@ public class SwordCtrl : MonoBehaviour
     {
         bc = GetComponent<BoxCollider2D>();
 
-        bc.size = new Vector2(3f, 2f);
-        bc.offset = new Vector2(-1.2f, 0f);
+        //bc.size = new Vector2(3f, 2f);
+        //bc.offset = new Vector2(-1.2f, 0f);
 
         bc.enabled = false;
     }

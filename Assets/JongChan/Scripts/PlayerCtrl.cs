@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public float moveSpeed;
-    public float jumpPower;
     Rigidbody2D rb;
     SpriteRenderer sr;
+
+    public float moveSpeed;
+    public float jumpPower;
+    float isjump = 2;
+    float PlayerLife = 3;
 
     void Start()
     {
@@ -22,15 +25,11 @@ public class PlayerCtrl : MonoBehaviour
 
         Move();
 
-        Vector3 mPosition = Input.mousePosition;
+        LookAt();
 
-        if (mPosition.x <= Screen.width / 2)
+        if (PlayerLife <= 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (mPosition.x >= Screen.width / 2)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+            Debug.Log("dead");
         }
     }
 
@@ -50,12 +49,45 @@ public class PlayerCtrl : MonoBehaviour
         else if (rb.velocity.x < moveSpeed * (-1))
             rb.velocity = new Vector2(moveSpeed * (-1), rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump"))
-            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        if (isjump > 0)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                isjump--;
+            }
+        }
 
         if (Input.GetAxisRaw("Horizontal") < 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (Input.GetAxisRaw("Horizontal") > 0)
             transform.localScale = new Vector3(-1, 1, 1);
+    }
+
+    void LookAt()
+    {
+        Vector3 mPosition = Input.mousePosition;
+
+        if (mPosition.x <= Screen.width / 2)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (mPosition.x >= Screen.width / 2)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Ground"))
+        {
+            isjump = 2;
+        }
+
+        if (col.collider.CompareTag("Enemy"))
+        {
+            PlayerLife--;
+        }
     }
 }
