@@ -10,7 +10,7 @@ public class NpcHilight : MonoBehaviour
     private HilightBubble hilightBubble = null;
 
 
-    // textbubble은 PREFAB으로 생성되게하자
+    // textbubble은 Prefab으로 생성되게하자
     [SerializeField]
     private TextBubble textBubble = null;
 
@@ -19,16 +19,42 @@ public class NpcHilight : MonoBehaviour
 
     // 지문의 갯수가 됩니다.
     [SerializeField]
-    private EMOTION[] emotionTypes = {EMOTION.A};
+    private EMOTION[] emotionTypes = {EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A};
+    [SerializeField]
+    private string[] emotionText = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    [SerializeField]
+    private STAT[] statTypes = {STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED};
+    [SerializeField]
+    private int[] statValues = {0, 0, 0, 0, 0};
 
+    private List<Choice> choices = new List<Choice>();
+    [SerializeField]
+    private string[] answerText = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    private bool isFinished = false;
     void Start()
     {
-        // this.dialogs.Add("안녕하세요");
-        // this.dialogs.Add("저는 테스트입니다.");
-        // this.dialogs.Add("만나서 반가워요 지문이 얼마나\r\n 길어져도 이상이없는지 확인해볼까요?");
+        this.isFinished = false;
         this.hilightBubble.Init(this.textBubble, this.dialogs);
+
+        for (int i = 0; i < emotionTypes.Length; i++)
+        {
+            EMOTION emotion = this.emotionTypes[i];
+            string emotionText = this.emotionText[i];
+            string answer = this.answerText[i];
+            STAT stat = this.statTypes[i];
+            int value = this.statValues[i];
+            this.choices.Add(new Choice(emotion, emotionText, () => {
+
+                this.textBubble.Answer(answer, new Buff(stat, value));
+                this.Finish();
+            }));
+        }
     }
 
+    private void Finish()
+    {
+        this.isFinished = true;
+    }
     void Update()
     {
         // 대화중 예외처리
@@ -37,7 +63,7 @@ public class NpcHilight : MonoBehaviour
         float distance = (this.Player.transform.localPosition - this.transform.localPosition).magnitude;
         if(distance < 2f)
         {
-            this.hilightBubble.On();
+            this.hilightBubble.On(this.choices);
         }
         else
         {

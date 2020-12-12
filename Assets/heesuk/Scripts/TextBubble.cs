@@ -24,19 +24,45 @@ public class TextBubble : MonoBehaviour
         this.bubbleImage.transform.localScale = Vector3.zero;
     }
     
-    public void On(List<string> _dialogs)
+    public void On(List<string> _dialogs, List<Choice> _choices)
     {
         GameManager.Instance.isTalk = true;
         this.ReadyImage.gameObject.SetActive(false);
         
         this.dialogs = _dialogs;
-        this.StartCoroutine(this.Dialog(this.dialogs));
+        this.StartCoroutine(this.Dialog(this.dialogs, _choices));
     }
 
-    
-    private IEnumerator Dialog(List<string> _dialogs)
+    public void Answer(string _dialog, Buff _buff)
     {
-        this.bubbleImage.transform.localScale = Vector3.one;
+        GameManager.Instance.isTalk = true;
+        this.ReadyImage.gameObject.SetActive(false);
+        
+        this.StartCoroutine(this.AnswerDialog(_dialog, _buff));
+    }
+    
+    private IEnumerator AnswerDialog(string _dialog, Buff _buff)
+    {
+        this.bubbleImage.transform.localScale = Vector3.zero;
+        this.bubbleImage.DOKill();
+        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+
+        yield return this.Typing(_dialog);
+
+        EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
+
+        this.bubbleImage.DOKill();
+        this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+    }
+    
+    private IEnumerator Dialog(List<string> _dialogs, List<Choice> _choices)
+    {
+        this.bubbleImage.transform.localScale = Vector3.zero;
+        this.bubbleImage.DOKill();
+        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
         for (int i = 0; i < _dialogs.Count; i++)
         {
@@ -45,15 +71,16 @@ public class TextBubble : MonoBehaviour
             yield return this.Typing(_dialogs[i]);
             yield return new WaitForFixedUpdate();
         }
-        EventManager.emit(EVENT_TYPE.START_CHOICE, this);
+
+        EventManager.emit(EVENT_TYPE.START_CHOICE, this, _choices);
     }
 
     private IEnumerator Typing(string _text)
     {
+        // yield return new WaitForSeconds(0.5f);
         this.ReadyImage.gameObject.SetActive(false);
         this.dialogText.text = string.Empty;
 
-        yield return new WaitForSeconds(0.5f);
         for(int i = 0; i < _text.Length; i++ )
         {
             this.dialogText.text = _text.Substring(0,i);

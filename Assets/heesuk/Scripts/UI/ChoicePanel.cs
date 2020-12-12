@@ -12,28 +12,42 @@ public enum EMOTION
     E,
 }
 
+public class Choice
+{
+    public EMOTION emotion = EMOTION.A;
+    public string text = string.Empty;
+    public CallbackEvent callback = null;
+    public Choice(EMOTION _emotion, string _text, CallbackEvent _callback)
+    {
+        this.emotion = _emotion;
+        this.text = _text;
+        this.callback = _callback;
+    }
+}
+
 public class ChoicePanel : MonoBehaviour
 {
     [SerializeField]
     private GameObject choiceButtonPrefab = null;
 
-    public void Init(List<string> _texts)
+    public void Init(List<Choice> _choices)
     {
-        foreach (var text in _texts)
+        this.StartCoroutine(this.Create(_choices));
+    }
+    
+    private IEnumerator Create(List<Choice> _choices)
+    {
+        foreach (var choice in _choices)
         {
-            this.CreateButton(text, this.DEBUG);
+            this.CreateButton(choice);
+            yield return new WaitForSeconds(0.15f);
         }
     }
     
-    private void DEBUG()
-    {
-        Debug.Log("선택 콜백");
-    }
-    
-    private void CreateButton(string _text, CallbackEvent _callback)
+    private void CreateButton(Choice _choice)
     {
         ChoiceButton choiceButton = Instantiate(this.choiceButtonPrefab).GetComponent<ChoiceButton>();
-        choiceButton.transform.SetParent(this.transform,false);
-        choiceButton.Init(_text, _callback);
+        choiceButton.transform.SetParent(this.transform, false);
+        choiceButton.Init(_choice);
     }
 }

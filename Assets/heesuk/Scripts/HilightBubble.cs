@@ -24,7 +24,7 @@ public class HilightBubble : MonoBehaviour
         this.dialogs = _dialogs;
     }
 
-    public void On()
+    public void On(List<Choice> _choices)
     {
         if(this.isShown) { return; }
 
@@ -33,10 +33,10 @@ public class HilightBubble : MonoBehaviour
         this.hilightImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
         this.hilightImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
         
-        this.StartCoroutine(this.Stay());
+        this.StartCoroutine(this.Stay(_choices));
     }
 
-    private IEnumerator Stay()
+    private IEnumerator Stay(List<Choice> _choices)
     {
         bool isKeyDown = false;
         while (true)
@@ -45,7 +45,7 @@ public class HilightBubble : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && !isKeyDown)
             {
                 isKeyDown = true;
-                this.textBubble.On(this.dialogs);
+                this.textBubble.On(this.dialogs, _choices);
                 break;
             }
         }
