@@ -35,7 +35,8 @@ public class PlayerCtrl : MonoBehaviour
 
         LookAt();
 
-        if (PlayerLife == 0 || !this.isDead)
+        Debug.Log($"{this.isDead}");
+        if (PlayerLife == 0 && !this.isDead)
         {
             this.isDead = true;
             Debug.Log("dead");
