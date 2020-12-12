@@ -9,6 +9,7 @@ public class UICanvas : MonoBehaviour
 
     public void Start()
     {
+        AudioManager.PlayBgm(BGM.MAIN);
         EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
     }
 

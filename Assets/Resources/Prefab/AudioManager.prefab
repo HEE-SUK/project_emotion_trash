@@ -48,7 +48,11 @@ MonoBehaviour:
   sfxSouce: {fileID: 9175995600274486577}
   bgmSouce: {fileID: 9175995600802036094}
   sfxList: []
-  bgmList: []
+  bgmList:
+  - {fileID: 8300000, guid: 8242489b568dfd84e85cd9f19abbcab8, type: 3}
+  - {fileID: 8300000, guid: dbf583bf66af9e94ca5db7857ef3b585, type: 3}
+  - {fileID: 8300000, guid: 76b19bd3c3e3e3648a102bb6efebc375, type: 3}
+  - {fileID: 8300000, guid: eaad317581315a94485c054abe515fed, type: 3}
 --- !u!1 &9175995600274486578
 GameObject:
   m_ObjectHideFlags: 0
