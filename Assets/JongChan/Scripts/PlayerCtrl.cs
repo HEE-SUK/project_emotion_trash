@@ -40,8 +40,6 @@ public class PlayerCtrl : MonoBehaviour
 
     void Move()
     {
-        // Debug.Log(isjump);
-
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonUp("Horizontal"))

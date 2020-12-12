@@ -65,7 +65,7 @@ public class PlayerBuffController : MonoBehaviour
                 this.playerCtrl.jumpPower = this.playerCtrl.jumpPower * buff.value;
                 break;
             case STAT.JUMP_COUNT:
-                this.playerCtrl.originjump += (int)buff.value;
+                this.playerCtrl.originjump = (int)buff.value;
                 break;
             case STAT.HP:
                 this.playerCtrl.PlayerLife += (int)buff.value;
