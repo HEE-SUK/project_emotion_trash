@@ -20,9 +20,29 @@ public class PlayerCtrl : MonoBehaviour
         // 대화중 예외처리
         if(GameManager.Instance.isTalk) { return; }
 
+        Move();
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+            Vector3 mPosition = Input.mousePosition;
+
+            if (mPosition.x <= Screen.width / 2)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (mPosition.x >= Screen.width / 2)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        //}
+    }
+
+    void Move()
+    {
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButtonUp("Horizontal"))
+        if (Input.GetButtonUp("Horizontal"))
         {
             rb.velocity = new Vector2(rb.velocity.normalized.x * 0f, rb.velocity.y);
         }
@@ -38,8 +58,8 @@ public class PlayerCtrl : MonoBehaviour
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 
         if (Input.GetAxisRaw("Horizontal") < 0)
-            sr.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         else if (Input.GetAxisRaw("Horizontal") > 0)
-                sr.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 }

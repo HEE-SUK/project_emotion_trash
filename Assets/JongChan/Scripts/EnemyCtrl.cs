@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        enemy1 = 0,
+        enemy2,
+        enemy3,
+        enemy4
+    }
+
+    public EnemyType enemyType;
+
     Rigidbody2D rb;
     GameObject traceTarget;
+    CircleCollider2D cc;
 
-    Vector3 movement;
     public float movePower;
-    public int creatureType = 0;
     int movementFlag = 0;
     bool isTracing = false;
-    public int enemyHp = 1;
+    public float enemyHp = 1;
 
     public static EnemyCtrl Instance;
 
@@ -25,6 +34,7 @@ public class EnemyCtrl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cc = GetComponentInChildren<CircleCollider2D>();
 
         StartCoroutine("ChangeMovement");
     }
@@ -32,6 +42,7 @@ public class EnemyCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheakType();
         Move();
 
         if (enemyHp <= 0)
@@ -40,9 +51,6 @@ public class EnemyCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (creatureType == 0)
-            return;
-
         if (col.CompareTag("Player"))
         {
             traceTarget = col.gameObject;
@@ -51,9 +59,6 @@ public class EnemyCtrl : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (creatureType == 0)
-            return;
-
         if (col.CompareTag("Player"))
         {
             isTracing = true;
@@ -62,9 +67,6 @@ public class EnemyCtrl : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (creatureType == 0)
-            return;
-
         if (col.gameObject.tag == "Player")
         {
             isTracing = false;
@@ -115,5 +117,35 @@ public class EnemyCtrl : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         StartCoroutine("ChangeMovement");
+    }
+
+    void CheakType()
+    {
+        switch(enemyType)
+        {
+            case EnemyType.enemy1:
+                enemyHp = 1;
+                movePower = 3;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.enemy2:
+                enemyHp = 1;
+                movePower = 5;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.enemy3:
+                enemyHp = 1;
+                movePower = 5;
+                cc.radius = 5;
+                break;
+
+            case EnemyType.enemy4:
+                enemyHp = 1;
+                movePower = 5;
+                cc.radius = 5;
+                break;
+        }
     }
 }

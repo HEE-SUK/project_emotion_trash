@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SwordCtrl : MonoBehaviour
 {
-    BoxCollider2D bc;
-
-    enum Wepon
+    public enum Weapon
     {
         spir = 0,
         longspir,
@@ -17,41 +15,110 @@ public class SwordCtrl : MonoBehaviour
         fish
     }
 
-    // Start is called before the first frame update
+    Weapon weapon = Weapon.poopBranch;
+
+    public static SwordCtrl Instance;
+    BoxCollider2D bc;
+
+    public float delayTime = 0f;
+    public float maxDelayTime = 2f;
+    private bool readyAttack = true;
+    float weaponDamage;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+
+        bc.size = new Vector2(3f, 2f);
+        bc.offset = new Vector2(-1.2f, 0f);
+
         bc.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 mPosition = Input.mousePosition;
-        Vector3 oPosition = transform.position;
+        WeaponSelect();
 
-        mPosition.z = oPosition.z - Camera.main.transform.position.z;
+        delayTime += Time.deltaTime;
 
-        Vector3 target = Camera.main.ScreenToWorldPoint(mPosition);
-
-        float dy = target.y - oPosition.y;
-        float dx = target.x - oPosition.x;
-
-        float rotateDegree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateDegree);
+        if (delayTime >= maxDelayTime)
+        {
+            readyAttack = true;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
-            bc.enabled = true;
+            if (readyAttack)
+            {
+                bc.enabled = true;
 
-            Invoke("BoxColliderOn", 0.1f);
+                Invoke("BoxColliderOn", 0.1f);
+                readyAttack = false;
+                delayTime = 0f;
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
+        {
+            EnemyCtrl.Instance.enemyHp -= weaponDamage;
+            Debug.Log("fdsa");
         }
     }
 
     void BoxColliderOn()
     {
         bc.enabled = false;
-        //bc.size.x = 
+        bc.size = new Vector2(3f, 2f);
+        bc.offset = new Vector2(-1.2f, 0f);
+    }
+
+    void WeaponSelect()
+    {
+        switch (weapon)
+        {
+            case Weapon.spir:
+                weaponDamage = 2f;
+                maxDelayTime = 1f;
+                break;
+
+            case Weapon.longspir:
+                weaponDamage = 2f;
+                maxDelayTime = 0.6f;
+                break;
+
+            case Weapon.dagger:
+                weaponDamage = 3f;
+                maxDelayTime = 1.4f;
+                break;
+
+            case Weapon.longsword:
+                weaponDamage = 5f;
+                maxDelayTime = 1f;
+                break;
+
+            case Weapon.excalibur:
+                weaponDamage = 10f;
+                maxDelayTime = 1.5f;
+                break;
+
+            case Weapon.poopBranch:
+                weaponDamage = 2f;
+                maxDelayTime = 1.5f;
+                break;
+
+            case Weapon.fish:
+                weaponDamage = 2f;
+                maxDelayTime = 1.2f;
+                break;
+        }
     }
 }
