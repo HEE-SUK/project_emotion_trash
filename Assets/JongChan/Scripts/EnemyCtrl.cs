@@ -20,7 +20,8 @@ public class EnemyCtrl : MonoBehaviour
     Rigidbody2D rb;
     GameObject traceTarget;
     CircleCollider2D cc;
-
+    
+    
     public float movePower;
     int movementFlag = 0;
     bool isTracing = false;
@@ -40,6 +41,7 @@ public class EnemyCtrl : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponentInChildren<CircleCollider2D>();
+        gameObject.GetComponent<Pathfinding.AIDestinationSetter>().enabled = true;
 
         StartCoroutine("ChangeMovement");
 
@@ -60,11 +62,17 @@ public class EnemyCtrl : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             traceTarget = col.gameObject;
+
+            if(enemyType == EnemyType.bet || enemyType == EnemyType.ghost)
+            {
+                gameObject.GetComponent<Pathfinding.AIDestinationSetter>().enabled = false;
+            }
         }
 
         if (col.CompareTag("Weapon"))
         {
             enemyHp -= SwordCtrl.Instance.weaponDamage + SwordCtrl.Instance.weaponBuff;
+            Debug.Log("fdsa");
         }
     }
 
@@ -135,43 +143,43 @@ public class EnemyCtrl : MonoBehaviour
         switch(enemyType)
         {
             case EnemyType.slime:
-                enemyHp = 1;
+                enemyHp = 2;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.goblin:
-                enemyHp = 1;
+                enemyHp = 3;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.bet:
-                enemyHp = 1;
+                enemyHp = 7;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.earthWorm:
-                enemyHp = 1;
+                enemyHp = 8;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.cube:
-                enemyHp = 1;
+                enemyHp = 20;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.ghost:
-                enemyHp = 1;
+                enemyHp = 7;
                 movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.dragon:
-                enemyHp = 1;
+                enemyHp = 20;
                 movePower = 3;
                 cc.radius = 5;
                 break;
