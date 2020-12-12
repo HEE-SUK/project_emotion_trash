@@ -30,9 +30,11 @@ public class PlayerCtrl : MonoBehaviour
 
         LookAt();
 
-        if (PlayerLife <= 0)
+        if (PlayerLife == 0)
         {
             Debug.Log("dead");
+            anim.SetTrigger("isDeath");
+            PlayerLife = -1;
         }
     }
 
@@ -62,15 +64,32 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     anim.SetTrigger("isJump");
                 }
+
+                else if (isjump == 1)
+                {
+                    anim.SetTrigger("isDoubleJump");
+                }
                 rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 isjump--;
             }
         }
 
         if (Input.GetAxisRaw("Horizontal") < 0)
+        {
             transform.localScale = new Vector3(1, 1, 1);
+            anim.SetBool("isRun", true);
+        }
+
         else if (Input.GetAxisRaw("Horizontal") > 0)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            anim.SetBool("isRun", true);
+        }
+
+        else
+        {
+            anim.SetBool("isRun", false);
+        }
     }
 
     void LookAt()
