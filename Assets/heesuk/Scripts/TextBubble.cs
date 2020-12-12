@@ -44,8 +44,8 @@ public class TextBubble : MonoBehaviour
     {
         this.bubbleImage.transform.localScale = Vector3.zero;
         this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleX(1f, 0.15f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
         for (int i = 0; i < _dialogs.Count; i++)
         {
@@ -54,11 +54,11 @@ public class TextBubble : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        EventManager.emit(EVENT_TYPE.TRASH_CHOICE, this, _buff);
+        EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
 
         this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
         GameManager.Instance.isTalk = false;
     }
 
@@ -66,8 +66,8 @@ public class TextBubble : MonoBehaviour
     {
         this.bubbleImage.transform.localScale = Vector3.zero;
         this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleX(1f, 0.15f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
         for (int i = 0; i < _dialogs.Count; i++)
         {
@@ -94,8 +94,8 @@ public class TextBubble : MonoBehaviour
 
         this.ReadyImage.gameObject.SetActive(true);
         this.ReadyImage.DOKill();
-        this.ReadyImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
-        this.ReadyImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleX(1f, 0.15f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleY(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
         
         // 대기
         while (true)
@@ -108,8 +108,8 @@ public class TextBubble : MonoBehaviour
         }
 
         this.ReadyImage.DOKill();
-        this.ReadyImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
-        this.ReadyImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
+        this.ReadyImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
         this.ReadyImage.gameObject.SetActive(false);
     }
 
@@ -118,7 +118,7 @@ public class TextBubble : MonoBehaviour
         this.ReadyImage.gameObject.SetActive(false);
         this.StopAllCoroutines();
         this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
+        this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
     }
 }

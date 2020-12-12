@@ -24,7 +24,7 @@ public class SwordCtrl : MonoBehaviour
     Animator anim;
 
     public float delayTime = 0f;
-    public float maxDelayTime = 2f;
+    public float maxDelayTime = 0.3f;
     private bool readyAttack = true;
     public float weaponDamage;
 
@@ -101,37 +101,37 @@ public class SwordCtrl : MonoBehaviour
         {
             case Weapon.spir:
                 weaponDamage = 2f;
-                maxDelayTime = 1f;
+                maxDelayTime = 0.3f;
                 break;
 
             case Weapon.longspir:
                 weaponDamage = 2f;
-                maxDelayTime = 0.6f;
+                maxDelayTime = 0.5f;
                 break;
 
             case Weapon.dagger:
                 weaponDamage = 3f;
-                maxDelayTime = 1.4f;
+                maxDelayTime = 0.3f;
                 break;
 
             case Weapon.longsword:
                 weaponDamage = 5f;
-                maxDelayTime = 1f;
+                maxDelayTime = 0.6f;
                 break;
 
             case Weapon.excalibur:
                 weaponDamage = 10f;
-                maxDelayTime = 1.5f;
+                maxDelayTime = 0.4f;
                 break;
 
             case Weapon.poopBranch:
                 weaponDamage = 2f;
-                maxDelayTime = 1.5f;
+                maxDelayTime = 0.2f;
                 break;
 
             case Weapon.fish:
                 weaponDamage = 2f;
-                maxDelayTime = 1.2f;
+                maxDelayTime = 0.2f;
                 break;
         }
     }
