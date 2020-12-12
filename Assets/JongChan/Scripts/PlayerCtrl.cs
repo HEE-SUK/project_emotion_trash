@@ -6,17 +6,19 @@ public class PlayerCtrl : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator anim;
 
     public float moveSpeed;
     public float jumpPower;
     public int originjump = 2;
-    private int isjump = 0;
+    private int isjump = 2;
     public int PlayerLife = 3;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,6 +38,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void Move()
     {
+        Debug.Log(isjump);
+
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonUp("Horizontal"))
@@ -54,6 +58,10 @@ public class PlayerCtrl : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                if (isjump == 2)
+                {
+                    anim.SetTrigger("isJump");
+                }
                 rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 isjump--;
             }
