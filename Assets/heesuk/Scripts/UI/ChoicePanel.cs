@@ -58,7 +58,6 @@ public class ChoicePanel : MonoBehaviour
     {
         foreach (var button in this.choiceButtons)
         {
-            this.choiceButtons.Remove(button);
             button.Finish();
         }
         this.choiceButtons.Clear();
