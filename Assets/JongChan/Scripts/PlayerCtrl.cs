@@ -12,7 +12,9 @@ public class PlayerCtrl : MonoBehaviour
     public float jumpPower;
     public int originjump = 2;
     private int isjump = 2;
-    public int PlayerLife = 3;
+    public int PlayerLife = 5;
+    private float invincibilityTime = 1;
+    private bool isHit = false;
 
     void Start()
     {
@@ -35,6 +37,19 @@ public class PlayerCtrl : MonoBehaviour
             Debug.Log("dead");
             anim.SetTrigger("isDeath");
             PlayerLife = -1;
+        }
+
+        if (isHit)
+        {
+            invincibilityTime += Time.deltaTime;
+        }
+
+        if (invincibilityTime >= 1)
+        {
+            sr.color = new Color(1, 1, 1, 1f);
+            gameObject.layer = 0;
+            invincibilityTime = 0;
+            isHit = false;
         }
     }
 
@@ -113,7 +128,14 @@ public class PlayerCtrl : MonoBehaviour
 
         else if (col.collider.CompareTag("Enemy"))
         {
+            Debug.Log("jhfd");
+            isHit = true;
+            if (isHit)
+                gameObject.layer = 11;
             PlayerLife--;
+            sr.color = new Color(1, 1, 1, 0.5f);
+
+
             // ui에 hp 전송
             EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
         }
