@@ -90,7 +90,6 @@ public class NpcHilight : MonoBehaviour
             float value = this.statValues[i];
             string statText = this.statTexts[i];
             Vector3 position = this.transform.position;
-            Debug.Log(this.transform.position);
             this.choices.Add(new Choice(emotion, emotionText, () => {
 
                 this.textBubble.Answer(answers, new Buff(stat, value, statText));

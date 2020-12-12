@@ -17,22 +17,22 @@ public class Icon : MonoBehaviour
         this.image.sprite = this.sprites[(int)_emotion];
         this.targetPosition = Camera.main.WorldToScreenPoint(_targetPosition);
         this.transform.localScale = Vector3.zero;
-        this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
-        this.transform.DOScaleX(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.transform.DOScaleY(1f, 0.2f).SetEase(Ease.OutBack);
+        this.transform.DOScaleX(1f, 0.2f).SetDelay(0.05f).SetEase(Ease.OutBack);
     }
 
-    public void Trash(Buff _buff) 
+    public void Trash(Choice _choice) 
     {   
         // 던지기
-        this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
-        this.transform.DOScaleX(0.5f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
-        this.transform.DOBlendableRotateBy(Vector3.zero, 0.5f).SetEase(Ease.OutBounce).OnComplete(() => {
+        this.transform.DOScaleY(0.8f, 0.2f).SetEase(Ease.OutBack);
+        this.transform.DOScaleX(0.8f, 0.2f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.transform.DOBlendableRotateBy(new Vector3(0f, 0f, 60f), 0.5f).SetEase(Ease.OutBounce).OnComplete(() => {
             this.StartCoroutine(this.Fade());
         });
 
-        this.transform.DOJump(this.targetPosition + new Vector3(0f, 0.2f, 0f), 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
-            
-            EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
+        this.transform.DOJump(this.targetPosition + new Vector3(10f, 20f, 0f), 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
+            _choice.callback();
+            // EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
             this.Finish();
         });
     }
