@@ -19,8 +19,8 @@ public class ChoiceButton : MonoBehaviour
     public void Init(Choice _choice, ChoiceButtonCallabck _callback)
     {
         this.transform.localScale = Vector3.zero;
-        this.transform.DOScaleY(1f, 0.15f);
-        this.transform.DOScaleX(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.transform.DOScaleY(1f, 0.2f);
+        this.transform.DOScaleX(1f, 0.2f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
         this.choice = _choice;
         this.buttonText.text = this.choice.text;
@@ -34,7 +34,6 @@ public class ChoiceButton : MonoBehaviour
         this.button.interactable = false;
         this.StartCoroutine(this.Blink());
 
-        this.choice.callback();
 
         // 전체 제거 콜백
         this.callback(this);
@@ -44,9 +43,10 @@ public class ChoiceButton : MonoBehaviour
     {
         while (true)
         {
-            canvasGroup.alpha = 0.5f;
-            yield return new WaitForSeconds(0.5f);
-            canvasGroup.alpha = 1f;
+            this.canvasGroup.alpha = 0.5f;
+            yield return new WaitForSeconds(0.25f);
+            this.canvasGroup.alpha = 1f;
+            yield return new WaitForSeconds(0.25f);
         }
     }
     
@@ -55,8 +55,8 @@ public class ChoiceButton : MonoBehaviour
         this.StopAllCoroutines();
         canvasGroup.alpha = 1f;
 
-        this.transform.DOScaleY(0f, 0.15f);
-        this.transform.DOScaleX(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack).OnComplete(() => {
+        this.transform.DOScaleX(0f, 0.2f);
+        this.transform.DOScaleY(0f, 0.2f).SetDelay(0.05f).SetEase(Ease.OutBack).OnComplete(() => {
             Destroy(this.gameObject);
         });
     }

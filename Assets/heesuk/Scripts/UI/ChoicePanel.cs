@@ -31,8 +31,6 @@ public class Choice
 public class ChoicePanel : MonoBehaviour
 {
     [SerializeField]
-    private Transform npcParent = null;
-    [SerializeField]
     private Transform choiceButtonParent = null;
     [SerializeField]
     private Transform iconParent = null;
@@ -55,7 +53,6 @@ public class ChoicePanel : MonoBehaviour
     {
         this.StartCoroutine(this.Create(_choices));
         
-        EventManager.on(EVENT_TYPE.TRASH_CHOICE, this.ShowTrash);
     }
     
     private IEnumerator Create(List<Choice> _choices)
@@ -82,7 +79,7 @@ public class ChoicePanel : MonoBehaviour
         Icon icon = Instantiate(this.iconPrefab).GetComponent<Icon>();
         icon.transform.SetParent(this.iconParent, false);
         icon.transform.localPosition =  this.buttonPositions[_index] + new Vector3(-30f, 0f, 0f);
-        icon.Init(_emotion, this.npcParent, _targetPosition);
+        icon.Init(_emotion, _targetPosition);
         this.icons.Add(icon);
     }
     public void Finish(ChoiceButton _button)
@@ -103,19 +100,21 @@ public class ChoicePanel : MonoBehaviour
         }
         this.choiceButtons.Clear();
         this.icons.Clear();
+        this.StartCoroutine(this.SelectButtonFinish());
     }
 
-    
-    public void ShowTrash(EVENT_TYPE EventType, Component Sender, object Param = null)
+    private IEnumerator SelectButtonFinish()
     {
-        Buff buff = (Buff)Param;
+        Choice choice = this.finishButton.choice;
+        yield return new WaitForSeconds(2f);
         this.finishButton.Finish();
-        this.finishIcon.Trash(buff);
+        yield return new WaitForSeconds(0.2f);
+        this.finishIcon.Trash(this.finishButton.choice);
     }
+
 
     
     private void OnDestroy() {
         
-        EventManager.off(EVENT_TYPE.TRASH_CHOICE, this.ShowTrash);
     }
 }
