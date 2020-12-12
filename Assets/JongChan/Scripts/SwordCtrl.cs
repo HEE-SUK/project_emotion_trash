@@ -21,6 +21,7 @@ public class SwordCtrl : MonoBehaviour
 
     public static SwordCtrl Instance;
     BoxCollider2D bc;
+    Animator anim;
 
     public float delayTime = 0f;
     public float maxDelayTime = 2f;
@@ -40,6 +41,7 @@ public class SwordCtrl : MonoBehaviour
         this.weaponBuff = 1f;
 
         bc = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
 
         //bc.size = new Vector2(3f, 2f);
         //bc.offset = new Vector2(-1.2f, 0f);
@@ -63,6 +65,7 @@ public class SwordCtrl : MonoBehaviour
         {
             if (readyAttack)
             {
+                anim.SetBool("isAttack", true);
                 bc.enabled = true;
 
                 Invoke("BoxColliderOn", 0.1f);
@@ -87,6 +90,7 @@ public class SwordCtrl : MonoBehaviour
         bc.enabled = false;
         bc.size = new Vector2(3f, 2f);
         bc.offset = new Vector2(-1.2f, 0f);
+        anim.SetBool("isAttack", false);
     }
 
     public void WeaponSelect()

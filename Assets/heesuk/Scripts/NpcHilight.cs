@@ -93,7 +93,7 @@ public class NpcHilight : MonoBehaviour
 
                 this.textBubble.Answer(answers, new Buff(stat, value, statText));
                 this.Finish();
-            }));
+            }, this.transform.position));
         }
     }
 
