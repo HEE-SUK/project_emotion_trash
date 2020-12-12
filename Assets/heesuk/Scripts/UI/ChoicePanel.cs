@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public enum EMOTION
 {
-    YELLO,
-    GREEN,
-    ORANGE,
-    RED,
+    A,
+    B,
+    C,
+    D,
+    E,
+    NONE,
 }
 
 public class Choice
 {
-    public EMOTION emotion = EMOTION.YELLO;
+    public EMOTION emotion = EMOTION.A;
     public string text = string.Empty;
     public CallbackEvent callback = null;
     public Vector3 position = new Vector3();
