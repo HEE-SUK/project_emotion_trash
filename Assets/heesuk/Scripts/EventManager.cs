@@ -7,12 +7,10 @@ public enum EVENT_TYPE {
     // UI관련
     START_CHOICE,
     END_CHOICE,
-    
     PLAYER_DEAD,
-
     PLAYER_BUFF,
     TRASH_CHOICE,
-
+    UPDATE_HP,
 }
 
 public class EventManager: Singleton<EventManager> 

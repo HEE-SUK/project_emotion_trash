@@ -80,7 +80,7 @@ public class SwordCtrl : MonoBehaviour
     //    if (col.CompareTag("Enemy"))
     //    {
     //        // 공격 데미지 * 무기 버프
-    //        EnemyCtrl.Instance.enemyHp -= weaponDamage * this.weaponBuff;
+    //        EnemyCtrl.Instance.enemyHp -= weaponDamage + this.weaponBuff;
             
     //        Debug.Log("fdsa");
     //    }
@@ -137,6 +137,6 @@ public class SwordCtrl : MonoBehaviour
 
     public void SetWeaponBuff(float _value)
     {
-        this.weaponBuff *= _value;
+        this.weaponBuff += _value;
     }
 }

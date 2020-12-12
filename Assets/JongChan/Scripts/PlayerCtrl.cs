@@ -40,8 +40,6 @@ public class PlayerCtrl : MonoBehaviour
 
     void Move()
     {
-        // Debug.Log(isjump);
-
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonUp("Horizontal"))
@@ -116,6 +114,8 @@ public class PlayerCtrl : MonoBehaviour
         else if (col.collider.CompareTag("Enemy"))
         {
             PlayerLife--;
+            // ui에 hp 전송
+            EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
         }
     }
 }

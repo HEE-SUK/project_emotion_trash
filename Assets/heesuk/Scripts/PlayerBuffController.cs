@@ -65,10 +65,12 @@ public class PlayerBuffController : MonoBehaviour
                 this.playerCtrl.jumpPower = this.playerCtrl.jumpPower * buff.value;
                 break;
             case STAT.JUMP_COUNT:
-                this.playerCtrl.originjump += (int)buff.value;
+                this.playerCtrl.originjump = (int)buff.value;
                 break;
             case STAT.HP:
                 this.playerCtrl.PlayerLife += (int)buff.value;
+                // ui에 hp 전송
+                EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.playerCtrl.PlayerLife);
                 break;
             case STAT.DAMAGE:
                 this.swordCtrl.SetWeaponBuff(buff.value);

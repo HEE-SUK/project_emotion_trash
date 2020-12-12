@@ -81,7 +81,6 @@ public class TextBubble : MonoBehaviour
 
     private IEnumerator Typing(string _text)
     {
-        // yield return new WaitForSeconds(0.5f);
         this.ReadyImage.gameObject.SetActive(false);
         this.ReadyImage.transform.localScale = Vector3.zero;
         this.dialogText.text = string.Empty;

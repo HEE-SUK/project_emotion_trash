@@ -42,6 +42,7 @@ public class NpcHilight : MonoBehaviour
     [SerializeField]
     private string[] statTexts = {};
     private bool isFinished = false;
+
     void Start()
     {
         this.isFinished = false;
@@ -56,36 +57,37 @@ public class NpcHilight : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    foreach (var item in answerText1)
+                    foreach (var item in this.answerText0)
                     {
                         answers.Add(item);
                     }
                     break;
                 case 1:
-                    foreach (var item in answerText1)
+                    foreach (var item in this.answerText1)
                     {
                         answers.Add(item);
                     }
                     break;
                 case 2:
-                    foreach (var item in answerText1)
+                    foreach (var item in this.answerText2)
                     {
                         answers.Add(item);
                     }
                     break;
                 case 3:
-                    foreach (var item in answerText1)
+                    foreach (var item in this.answerText3)
                     {
                         answers.Add(item);
                     }
                     break;
                 case 4:
-                    foreach (var item in answerText1)
+                    foreach (var item in this.answerText4)
                     {
                         answers.Add(item);
                     }
                     break;
             }
+
             STAT stat = this.statTypes[i];
             float value = this.statValues[i];
             string statText = this.statTexts[i];
