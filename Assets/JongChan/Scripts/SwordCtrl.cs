@@ -65,6 +65,7 @@ public class SwordCtrl : MonoBehaviour
         {
             if (readyAttack)
             {
+                AudioManager.PlaySfx(SFX.PLAYER_ATTACK);
                 anim.SetBool("isAttack", true);
                 bc.enabled = true;
 

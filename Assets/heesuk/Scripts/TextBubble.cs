@@ -87,6 +87,7 @@ public class TextBubble : MonoBehaviour
 
         for(int i = 0; i < _text.Length; i++ )
         {
+            AudioManager.PlaySfx(SFX.TYPING);
             this.dialogText.text = _text.Substring(0,i);
             yield return new WaitForSeconds(0.05f);
         }
@@ -103,6 +104,7 @@ public class TextBubble : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if(Input.GetKeyDown(KeyCode.F))
             {
+                AudioManager.PlaySfx(SFX.PRESS_F_KEY);
                 break;
             }
         }

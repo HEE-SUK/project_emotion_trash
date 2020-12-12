@@ -44,6 +44,7 @@ public class HilightBubble : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if(Input.GetKeyDown(KeyCode.F) && !isKeyDown)
             {
+                AudioManager.PlaySfx(SFX.PRESS_F_KEY);
                 isKeyDown = true;
                 this.textBubble.On(this.dialogs, _choices);
                 break;

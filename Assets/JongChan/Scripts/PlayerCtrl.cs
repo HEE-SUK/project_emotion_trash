@@ -16,11 +16,14 @@ public class PlayerCtrl : MonoBehaviour
     private float invincibilityTime = 1;
     private bool isHit = false;
 
+    private bool isDead = false;
     void Start()
     {
+        this.isDead = false;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
     }
 
     void Update()
@@ -32,11 +35,15 @@ public class PlayerCtrl : MonoBehaviour
 
         LookAt();
 
-        if (PlayerLife == 0)
+        Debug.Log($"{this.isDead}");
+        if (PlayerLife == 0 && !this.isDead)
         {
+            this.isDead = true;
             Debug.Log("dead");
             anim.SetTrigger("isDeath");
             PlayerLife = -1;
+            EventManager.emit(EVENT_TYPE.PLAYER_DEAD, this);
+            AudioManager.PlaySfx(SFX.PLAYER_DEAD);
         }
 
         if (isHit)
@@ -55,6 +62,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Move()
     {
+        if(this.isDead) { return; }
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonUp("Horizontal"))
@@ -73,6 +81,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                AudioManager.PlaySfx(SFX.PLAYER_JUMP);
                 if (isjump == 2)
                 {
                     anim.SetTrigger("isJump");
@@ -107,6 +116,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void LookAt()
     {
+        if(this.isDead) { return; }
+        
         Vector3 mPosition = Input.mousePosition;
 
         if (mPosition.x <= Screen.width / 2)
@@ -128,6 +139,7 @@ public class PlayerCtrl : MonoBehaviour
 
         else if (col.collider.CompareTag("Enemy"))
         {
+            AudioManager.PlaySfx(SFX.PLAYER_ATTACKED);
             Debug.Log("jhfd");
             isHit = true;
             if (isHit)

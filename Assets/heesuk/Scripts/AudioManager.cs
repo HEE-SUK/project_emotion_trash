@@ -2,18 +2,16 @@
 public enum SFX
 {
     // UI 상호작용
-    BUTTON,
-    COIN,
-    EQUIPED,
-
-    // 인게임 상호작용
-    WEAPON_HAND,
-    WEAPON_SWORD,
-    WEAPON_AXE,
-    WEAPON_HAMMER,
-
-    //  플레이어를 제외한 상호작용
-    ENEMY_DEAD,
+    PLAYER_ATTACK,
+    PLAYER_ATTACKED,
+    PLAYER_JUMP,
+    PLAYER_DEAD,
+    MONSTER_DEAD,
+    PRESS_F_KEY,
+    TYPING,
+    SELECT_ANSWER,
+    SELECT_EMOTION,
+    WARP,
 }
 public enum BGM
 {
@@ -43,7 +41,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         this.sfxSouce.volume = 0.5f;
         this.bgmSouce.volume = 0.5f;
     }
-    
+
     public static void PlayBgm(BGM _bgmType)
 	{
         int bgmType = (int)_bgmType;

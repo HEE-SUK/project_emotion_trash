@@ -23,6 +23,7 @@ public class Icon : MonoBehaviour
 
     public void Trash(Choice _choice) 
     {   
+        AudioManager.PlaySfx(SFX.SELECT_EMOTION);
         // 던지기
         this.transform.DOScaleY(0.8f, 0.2f).SetEase(Ease.OutBack);
         this.transform.DOScaleX(0.8f, 0.2f).SetDelay(0.05f).SetEase(Ease.OutBack);
@@ -32,7 +33,6 @@ public class Icon : MonoBehaviour
 
         this.transform.DOJump(this.targetPosition + new Vector3(10f, 20f, 0f), 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
             _choice.callback();
-            // EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
             this.Finish();
         });
     }
