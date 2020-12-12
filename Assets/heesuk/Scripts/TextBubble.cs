@@ -83,6 +83,7 @@ public class TextBubble : MonoBehaviour
     {
         // yield return new WaitForSeconds(0.5f);
         this.ReadyImage.gameObject.SetActive(false);
+        this.ReadyImage.transform.localScale = Vector3.zero;
         this.dialogText.text = string.Empty;
 
         for(int i = 0; i < _text.Length; i++ )
