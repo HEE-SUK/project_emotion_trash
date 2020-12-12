@@ -29,7 +29,7 @@ public class ChoiceButton : MonoBehaviour
 
     public void OnButton()
     {
-        // 깜박깜박 좋을듯
+        AudioManager.PlaySfx(SFX.SELECT_ANSWER);
         // 효과 부여 
         this.button.interactable = false;
         this.StartCoroutine(this.Blink());

@@ -54,7 +54,10 @@ public class EnemyCtrl : MonoBehaviour
         Move();
 
         if (this.enemyHp <= 0)
+        {
+            AudioManager.PlaySfx(SFX.MONSTER_DEAD);
             Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -71,6 +74,7 @@ public class EnemyCtrl : MonoBehaviour
 
         if (col.CompareTag("Weapon"))
         {
+            AudioManager.PlaySfx(SFX.PLAYER_ATTACKED);
             enemyHp -= SwordCtrl.Instance.weaponDamage + SwordCtrl.Instance.weaponBuff;
             Debug.Log("fdsa");
         }

@@ -47,7 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSouce: {fileID: 9175995600274486577}
   bgmSouce: {fileID: 9175995600802036094}
-  sfxList: []
+  sfxList:
+  - {fileID: 8300000, guid: 786307e5232c96f4ea2cab223ea39d5a, type: 3}
+  - {fileID: 8300000, guid: 8e5b74d1f81750a498df043fd1c8d2bd, type: 3}
+  - {fileID: 8300000, guid: 52d25bcb818fa8d4fa906441ab93603b, type: 3}
+  - {fileID: 8300000, guid: a7a9ffc64cfb509448c2da92fdf536a1, type: 3}
+  - {fileID: 8300000, guid: f115ee4a4cb66da4ca9e6144ceb09770, type: 3}
+  - {fileID: 8300000, guid: 0ac217c2274467b4d89b61bf2a347800, type: 3}
+  - {fileID: 8300000, guid: f799d3099e15a3c428305f53c8a5048a, type: 3}
+  - {fileID: 8300000, guid: 9bb287a8a1918bb41b7bf6d9f7f64ccf, type: 3}
+  - {fileID: 8300000, guid: e5c2f17f64ad131408e0ecfaceaf29df, type: 3}
+  - {fileID: 8300000, guid: ff2540ac3bf54dc4181aa21459b65f5a, type: 3}
   bgmList:
   - {fileID: 8300000, guid: 8242489b568dfd84e85cd9f19abbcab8, type: 3}
   - {fileID: 8300000, guid: dbf583bf66af9e94ca5db7857ef3b585, type: 3}

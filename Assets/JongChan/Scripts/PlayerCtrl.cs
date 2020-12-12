@@ -21,6 +21,7 @@ public class PlayerCtrl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
     }
 
     void Update()
@@ -39,6 +40,7 @@ public class PlayerCtrl : MonoBehaviour
             anim.SetTrigger("isDeath");
             PlayerLife = -1;
             EventManager.emit(EVENT_TYPE.PLAYER_DEAD, this);
+            AudioManager.PlaySfx(SFX.PLAYER_DEAD);
         }
     }
 
@@ -63,6 +65,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                AudioManager.PlaySfx(SFX.PLAYER_JUMP);
                 if (isjump == 2)
                 {
                     anim.SetTrigger("isJump");
@@ -97,6 +100,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void LookAt()
     {
+        if(this.isDead) { return; }
+        
         Vector3 mPosition = Input.mousePosition;
 
         if (mPosition.x <= Screen.width / 2)
@@ -118,6 +123,7 @@ public class PlayerCtrl : MonoBehaviour
 
         else if (col.collider.CompareTag("Enemy"))
         {
+            AudioManager.PlaySfx(SFX.PLAYER_ATTACKED);
             PlayerLife--;
             // ui에 hp 전송
             EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
