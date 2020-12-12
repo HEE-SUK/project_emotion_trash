@@ -55,10 +55,11 @@ public class NpcHilight : MonoBehaviour
     {
         this.isFinished = true;
     }
+
     void Update()
     {
         // 대화중 예외처리
-        if(GameManager.Instance.isTalk) { return; }
+        if(GameManager.Instance.isTalk || this.isFinished) { return; }
 
         float distance = (this.Player.transform.localPosition - this.transform.localPosition).magnitude;
         if(distance < 2f)

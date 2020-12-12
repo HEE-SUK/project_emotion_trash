@@ -16,7 +16,6 @@ public class TextBubble : MonoBehaviour
 
     private List<string> dialogs = new List<string>();
 
-    private bool isReadyNext = false;
 
     private void Awake() 
     {
@@ -55,8 +54,9 @@ public class TextBubble : MonoBehaviour
         this.bubbleImage.DOKill();
         this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
         this.bubbleImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        GameManager.Instance.isTalk = false;
     }
-    
+
     private IEnumerator Dialog(List<string> _dialogs, List<Choice> _choices)
     {
         this.bubbleImage.transform.localScale = Vector3.zero;
@@ -67,7 +67,6 @@ public class TextBubble : MonoBehaviour
         for (int i = 0; i < _dialogs.Count; i++)
         {
             // 대화문 리스트만큼 반복
-            this.isReadyNext = false;
             yield return this.Typing(_dialogs[i]);
             yield return new WaitForFixedUpdate();
         }
@@ -87,7 +86,6 @@ public class TextBubble : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         this.dialogText.text = _text;
-        this.isReadyNext = true;
 
         this.ReadyImage.gameObject.SetActive(true);
         this.ReadyImage.DOKill();

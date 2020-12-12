@@ -15,7 +15,7 @@ public class ChoiceButton : MonoBehaviour
     private Sprite[] emotionsprites = {};
 
     CallbackEvent callback = null;
-    public void Init(Choice _choice)
+    public void Init(Choice _choice, CallbackEvent _callback)
     {
         this.transform.localScale = Vector3.zero;
         this.transform.DOScaleY(1f, 0.15f);
@@ -24,11 +24,18 @@ public class ChoiceButton : MonoBehaviour
         this.buttonText.text = _choice.text;
         this.emotionImage.sprite = this.emotionsprites[(int)_choice.emotion];
         // this.emotionImage.SetNativeSize();
-        this.callback = _choice.callback;
+        this.callback = () => {
+            _choice.callback();
+            _callback();
+        };
     }
 
     public void OnButton()
     {
         this.callback();
+    }
+    public void Finish()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -50,15 +50,17 @@ public class ChoicePanel : MonoBehaviour
     {
         ChoiceButton choiceButton = Instantiate(this.choiceButtonPrefab).GetComponent<ChoiceButton>();
         choiceButton.transform.SetParent(this.transform, false);
-        choiceButton.Init(_choice);
+        choiceButton.Init(_choice, this.Finish);
         this.choiceButtons.Add(choiceButton);
     }
 
     public void Finish()
     {
-        // foreach (var item in collection)
-        // {
-            
-        // }
+        foreach (var button in this.choiceButtons)
+        {
+            this.choiceButtons.Remove(button);
+            button.Finish();
+        }
+        this.choiceButtons.Clear();
     }
 }
