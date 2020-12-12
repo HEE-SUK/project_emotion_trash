@@ -54,7 +54,7 @@ public class TextBubble : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
+        EventManager.emit(EVENT_TYPE.TRASH_CHOICE, this, _buff);
 
         this.bubbleImage.DOKill();
         this.bubbleImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
