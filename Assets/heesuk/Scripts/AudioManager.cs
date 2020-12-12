@@ -17,8 +17,10 @@ public enum SFX
 }
 public enum BGM
 {
-    OUTGAME,
-    INGAME,
+    INTRO,
+    MAIN,
+    GOOD_ENDING,
+    BAD_ENDING,
 }
 
 public class AudioManager : MonoSingleton<AudioManager>
@@ -41,9 +43,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         this.sfxSouce.volume = 0.5f;
         this.bgmSouce.volume = 0.5f;
     }
-    private void Start() 
-    {
-    }
+    
     public static void PlayBgm(BGM _bgmType)
 	{
         int bgmType = (int)_bgmType;
