@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/heesuk/Tiles/DungeonRuleTile.asset.meta
+guid: 570390760523fb64eb26064263618860
+=======
 guid: 1de7954ae3dc6f24ab447030058c3e21
+>>>>>>> 3b317352668062c4cc369282bbcbebf52eaf6267:Assets/JongChan/Animations/Death.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
