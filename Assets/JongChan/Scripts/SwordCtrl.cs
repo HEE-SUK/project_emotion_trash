@@ -54,7 +54,6 @@ public class SwordCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         delayTime += Time.deltaTime;
 
         if (delayTime >= maxDelayTime)
