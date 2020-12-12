@@ -15,6 +15,8 @@ public class Icon : MonoBehaviour
     public void Init(EMOTION _emotion, Transform _npcParent, Vector3 _targetPosition)
     {
         this.image.sprite = this.sprites[(int)_emotion];
+        this.npcParnet = _npcParent;
+        this.targetPosition = Camera.main.WorldToScreenPoint(_targetPosition);
         this.transform.localScale = Vector3.zero;
         this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
         this.transform.DOScaleX(1f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
@@ -22,21 +24,21 @@ public class Icon : MonoBehaviour
 
     public void Trash(Buff _buff) 
     {   
-        this.transform.SetParent(this.npcParnet, false);
-        
+        // iMAGE 문제
+
         // 던지기
         // this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
         // this.transform.DOScaleX(0.5f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
-        Debug.Log("Trash");
         this.transform.DOMove(this.targetPosition, 2f).OnComplete(() => {
+            
+            Debug.Log($" {this.transform.position} / {this.targetPosition}");
             EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
-            this.Finish();
+            // this.Finish();
         });
     }
     public void Finish() 
     {
-        Debug.Log("finish");
         // 제거
         this.transform.DOScaleY(0f, 0.15f);
         this.transform.DOScaleX(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack).OnComplete(() => {
