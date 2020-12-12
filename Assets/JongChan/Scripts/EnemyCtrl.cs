@@ -162,7 +162,7 @@ public class EnemyCtrl : MonoBehaviour
 
             case EnemyType.earthWorm:
                 enemyHp = 8;
-                movePower = 3;
+                movePower = 0;
                 cc.radius = 5;
                 break;
 
