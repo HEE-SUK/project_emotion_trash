@@ -13,7 +13,7 @@ public class IntroHilight : MonoBehaviour
     private HilightBubble hilightBubble = null;
 
     [SerializeField]
-    private DialogInfo[] info = {};
+    private DialogInfo[] dialogInfo = {};
 
     public int dialogCount = 0;
     
@@ -26,57 +26,20 @@ public class IntroHilight : MonoBehaviour
     private void Start()
     {
         this.isFinished = false;
-        this.hilightBubble.Init(this.textBubble, this.info[this.dialogCount].dialogs);
+        this.dialogCount = 0;
+        this.hilightBubble.Init(this.textBubble, this.dialogInfo[this.dialogCount].dialogs);
 
-        for (int i = 0; i < this.info[this.dialogCount].emotionTypes.Length; i++)
+        for (int i = 0; i < this.dialogInfo.Length; i++)
         {
-            EMOTION emotion = this.info[this.dialogCount].emotionTypes[i];
-            string emotionText = this.info[this.dialogCount].emotionText[i];
-
-            List<string> answers = new List<string>();
-            switch (i)
-            {
-                case 0:
-                    foreach (var item in this.info[this.dialogCount].answerText0)
-                    {
-                        answers.Add(item);
-                    }
-                    break;
-                case 1:
-                    foreach (var item in this.info[this.dialogCount].answerText1)
-                    {
-                        answers.Add(item);
-                    }
-                    break;
-                case 2:
-                    foreach (var item in this.info[this.dialogCount].answerText2)
-                    {
-                        answers.Add(item);
-                    }
-                    break;
-                case 3:
-                    foreach (var item in this.info[this.dialogCount].answerText3)
-                    {
-                        answers.Add(item);
-                    }
-                    break;
-                case 4:
-                    foreach (var item in this.info[this.dialogCount].answerText4)
-                    {
-                        answers.Add(item);
-                    }
-                    break;
-            }
-
-            Vector3 position = this.transform.position;
-            this.info[this.dialogCount].choices.Add(new Choice(emotion, emotionText, () => {
-
-                this.textBubble.IntroAnswer(answers);
-                this.Finish();
-            }, position));
+            this.dialogInfo[i].Init(this.textBubble, this.NextTextBubble, this.Finish, (i == this.dialogInfo.Length - 1));
         }
     }
 
+    private void NextTextBubble()
+    {
+        this.dialogCount += 1;
+        this.textBubble.On(this.dialogInfo[this.dialogCount].dialogs, this.dialogInfo[this.dialogCount].choices);
+    }
     private void Finish()
     {
         this.isFinished = true;
@@ -90,7 +53,7 @@ public class IntroHilight : MonoBehaviour
         float distance = (this.Player.transform.localPosition - this.transform.localPosition).magnitude;
         if(distance < 2f)
         {
-            this.hilightBubble.On(this.info[this.dialogCount].choices);
+            this.hilightBubble.On(this.dialogInfo[this.dialogCount].choices);
         }
         else
         {

@@ -17,6 +17,56 @@ public class DialogInfo : MonoBehaviour
     public string[] answerText3 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
     public string[] answerText4 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
 
-    private bool isFinished = false;
 
+    public void Init(TextBubble _textBubble, CallbackEvent _nextCallback, CallbackEvent _finishCallback, bool _isFinish)
+    {
+
+        for (int i = 0; i < this.emotionTypes.Length; i++)
+        {
+            EMOTION emotion = this.emotionTypes[i];
+            string emotionText = this.emotionText[i];
+
+            List<string> answers = new List<string>();
+            switch (i)
+            {
+                case 0:
+                    foreach (var item in this.answerText0)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 1:
+                    foreach (var item in this.answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 2:
+                    foreach (var item in this.answerText2)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 3:
+                    foreach (var item in this.answerText3)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 4:
+                    foreach (var item in this.answerText4)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+            }
+
+            Vector3 position = this.transform.position;
+            this.choices.Add(new Choice(emotion, emotionText, () => {
+                // 하이라이트 누름
+                _finishCallback();
+                _textBubble.IntroAnswer(answers, _nextCallback, _isFinish);
+            }, position));
+        }
+    }
 }

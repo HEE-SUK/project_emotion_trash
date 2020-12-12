@@ -32,15 +32,15 @@ public class TextBubble : MonoBehaviour
         this.StartCoroutine(this.Dialog(this.dialogs, _choices));
     }
 
-    public void IntroAnswer(List<string> _dialogs)
+    public void IntroAnswer(List<string> _dialogs, CallbackEvent _callback, bool _isFinish)
     {
         GameManager.Instance.isTalk = true;
         this.ReadyImage.gameObject.SetActive(false);
         
-        this.StartCoroutine(this.IntroDialog(_dialogs));
+        this.StartCoroutine(this.IntroDialog(_dialogs, _callback, _isFinish));
     }
     
-    private IEnumerator IntroDialog(List<string> _dialogs)
+    private IEnumerator IntroDialog(List<string> _dialogs, CallbackEvent _callback, bool _isFinish)
     {
         this.bubbleImage.transform.localScale = Vector3.zero;
         this.bubbleImage.DOKill();
@@ -54,12 +54,25 @@ public class TextBubble : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        this.bubbleImage.DOKill();
-        this.bubbleImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
-        this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
-        GameManager.Instance.isTalk = false;
+        if(_isFinish) 
+        {
+            // 마지막 인덱스
+            EventManager.emit(EVENT_TYPE.GO_MAIN, this);
+            this.bubbleImage.DOKill();
+            this.bubbleImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
+            this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
+            GameManager.Instance.isTalk = false;
+        }
+        else
+        {
+            // 다음 인덱스
+            _callback();
+        }
+
     }
-    
+
+
+
     public void Answer(List<string> _dialogs, Buff _buff)
     {
         GameManager.Instance.isTalk = true;
@@ -89,6 +102,9 @@ public class TextBubble : MonoBehaviour
         this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
         GameManager.Instance.isTalk = false;
     }
+
+
+
 
     private IEnumerator Dialog(List<string> _dialogs, List<Choice> _choices)
     {
