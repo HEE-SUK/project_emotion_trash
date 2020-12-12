@@ -25,11 +25,19 @@ public class NpcHilight : MonoBehaviour
     [SerializeField]
     private STAT[] statTypes = {STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED, STAT.MOVE_SPEED};
     [SerializeField]
-    private int[] statValues = {0, 0, 0, 0, 0};
+    private float[] statValues = {0, 0, 0, 0, 0};
 
     private List<Choice> choices = new List<Choice>();
     [SerializeField]
-    private string[] answerText = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    private string[] answerText0 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    [SerializeField]
+    private string[] answerText1 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    [SerializeField]
+    private string[] answerText2 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    [SerializeField]
+    private string[] answerText3 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+    [SerializeField]
+    private string[] answerText4 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
     private bool isFinished = false;
     void Start()
     {
@@ -40,12 +48,46 @@ public class NpcHilight : MonoBehaviour
         {
             EMOTION emotion = this.emotionTypes[i];
             string emotionText = this.emotionText[i];
-            string answer = this.answerText[i];
+
+            List<string> answers = new List<string>();
+            switch (i)
+            {
+                case 0:
+                    foreach (var item in answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 1:
+                    foreach (var item in answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 2:
+                    foreach (var item in answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 3:
+                    foreach (var item in answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+                case 4:
+                    foreach (var item in answerText1)
+                    {
+                        answers.Add(item);
+                    }
+                    break;
+            }
             STAT stat = this.statTypes[i];
-            int value = this.statValues[i];
+            float value = this.statValues[i];
             this.choices.Add(new Choice(emotion, emotionText, () => {
 
-                this.textBubble.Answer(answer, new Buff(stat, value));
+                this.textBubble.Answer(answers, new Buff(stat, value));
                 this.Finish();
             }));
         }

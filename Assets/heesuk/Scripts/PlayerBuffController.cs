@@ -16,8 +16,8 @@ public enum STAT
 public class Buff 
 {
     public STAT stat = STAT.MOVE_SPEED;
-    public int value = 0;
-    public Buff(STAT _stat, int _value)
+    public float value = 0;
+    public Buff(STAT _stat, float _value)
     {
         this.stat = _stat;
         this.value = _value;
@@ -27,10 +27,14 @@ public class Buff
 public class PlayerBuffController : MonoBehaviour
 {
     [SerializeField]
-    private Transform player = null;
+    private PlayerCtrl playerCtrl = null;
+    [SerializeField]
+    private SwordCtrl swordCtrl = null;
     [SerializeField]
     private TextMeshProUGUI messageText = null;
 
+    [SerializeField]
+    private string[] weaponNames = {"일반 검","긴 검","단검","00검","엑스칼리버","똥막대기","고등어"};
     private void Awake()
     {
         this.messageText.text = string.Empty;
@@ -39,28 +43,36 @@ public class PlayerBuffController : MonoBehaviour
 
     public void ShowBuff(EVENT_TYPE EventType, Component Sender, object Param = null)
     {
-        this.transform.localPosition = this.player.transform.localPosition + new Vector3(0f, 1f, 0f);
+        this.transform.localPosition = this.playerCtrl.transform.localPosition + new Vector3(0f, 1f, 0f);
         this.messageText.text = string.Empty;
         Buff buff = (Buff)Param;
         switch (buff.stat)
         {
             case STAT.MOVE_SPEED:
                 this.messageText.text = $"이동속도 + {buff.value}";
+                this.playerCtrl.moveSpeed = this.playerCtrl.moveSpeed * buff.value;
                 break;
             case STAT.JUMP_POWER:
                 this.messageText.text = $"점프력 + {buff.value}";
+                this.playerCtrl.jumpPower = this.playerCtrl.jumpPower * buff.value;
                 break;
             case STAT.JUMP_COUNT:
                 this.messageText.text = $"점프 횟수 + {buff.value}";
                 break;
             case STAT.HP:
                 this.messageText.text = $"체력 + {buff.value}";
+                // TODO:
                 break;
             case STAT.DAMAGE:
                 this.messageText.text = $"공격력 + {buff.value}";
+                this.swordCtrl.SetWeaponBuff(buff.value);
                 break;
             case STAT.WEAPON_CHANGE:
-                this.messageText.text = $"무기 변경 [{buff.value}]";
+                Weapon weapoonType = (Weapon)(int)buff.value;
+
+                this.messageText.text = $"무기 변경 [{value}]";
+                this.swordCtrl.weapon = weapoonType;
+                this.swordCtrl.WeaponSelect();
                 break;
         }
         this.messageText.transform.DOLocalMoveY(100f, 1f).OnComplete(this.Finish);

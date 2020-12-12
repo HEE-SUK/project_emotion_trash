@@ -32,22 +32,27 @@ public class TextBubble : MonoBehaviour
         this.StartCoroutine(this.Dialog(this.dialogs, _choices));
     }
 
-    public void Answer(string _dialog, Buff _buff)
+    public void Answer(List<string> _dialogs, Buff _buff)
     {
         GameManager.Instance.isTalk = true;
         this.ReadyImage.gameObject.SetActive(false);
         
-        this.StartCoroutine(this.AnswerDialog(_dialog, _buff));
+        this.StartCoroutine(this.AnswerDialog(_dialogs, _buff));
     }
     
-    private IEnumerator AnswerDialog(string _dialog, Buff _buff)
+    private IEnumerator AnswerDialog(List<string> _dialogs, Buff _buff)
     {
         this.bubbleImage.transform.localScale = Vector3.zero;
         this.bubbleImage.DOKill();
         this.bubbleImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
         this.bubbleImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
 
-        yield return this.Typing(_dialog);
+        for (int i = 0; i < _dialogs.Count; i++)
+        {
+            // 대화문 리스트만큼 반복
+            yield return this.Typing(_dialogs[i]);
+            yield return new WaitForFixedUpdate();
+        }
 
         EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
 

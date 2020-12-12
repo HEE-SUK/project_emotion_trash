@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Weapon
+{
+    spir = 0,
+    longspir,
+    dagger,
+    longsword,
+    excalibur,
+    poopBranch,
+    fish
+}
+
 public class SwordCtrl : MonoBehaviour
 {
-    public enum Weapon
-    {
-        spir = 0,
-        longspir,
-        dagger,
-        longsword,
-        excalibur,
-        poopBranch,
-        fish
-    }
 
-    Weapon weapon = Weapon.poopBranch;
+    [SerializeField]
+    public Weapon weapon = Weapon.poopBranch;
 
     public static SwordCtrl Instance;
     BoxCollider2D bc;
@@ -23,7 +25,10 @@ public class SwordCtrl : MonoBehaviour
     public float delayTime = 0f;
     public float maxDelayTime = 2f;
     private bool readyAttack = true;
-    float weaponDamage;
+    public float weaponDamage;
+
+    [HideInInspector]
+    public float weaponBuff = 1f;
 
     private void Awake()
     {
@@ -32,6 +37,8 @@ public class SwordCtrl : MonoBehaviour
 
     void Start()
     {
+        this.weaponBuff = 1f;
+
         bc = GetComponent<BoxCollider2D>();
 
         //bc.size = new Vector2(3f, 2f);
@@ -69,7 +76,8 @@ public class SwordCtrl : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            EnemyCtrl.Instance.enemyHp -= weaponDamage;
+            // 공격 데미지 * 무기 버프
+            EnemyCtrl.Instance.enemyHp -= weaponDamage * this.weaponBuff;
             Debug.Log("fdsa");
         }
     }
@@ -81,7 +89,7 @@ public class SwordCtrl : MonoBehaviour
         bc.offset = new Vector2(-1.2f, 0f);
     }
 
-    void WeaponSelect()
+    public void WeaponSelect()
     {
         switch (weapon)
         {
@@ -120,5 +128,10 @@ public class SwordCtrl : MonoBehaviour
                 maxDelayTime = 1.2f;
                 break;
         }
+    }
+
+    public void SetWeaponBuff(float _value)
+    {
+        this.weaponBuff *= _value;
     }
 }
