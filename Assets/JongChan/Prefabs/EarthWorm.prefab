@@ -193,5 +193,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 3
-  movePower: 3
+  movePower: 0
   enemyHp: 1
