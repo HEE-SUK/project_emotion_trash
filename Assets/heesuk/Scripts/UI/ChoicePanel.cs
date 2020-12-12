@@ -31,8 +31,6 @@ public class Choice
 public class ChoicePanel : MonoBehaviour
 {
     [SerializeField]
-    private Transform npcParent = null;
-    [SerializeField]
     private Transform choiceButtonParent = null;
     [SerializeField]
     private Transform iconParent = null;
@@ -82,7 +80,7 @@ public class ChoicePanel : MonoBehaviour
         Icon icon = Instantiate(this.iconPrefab).GetComponent<Icon>();
         icon.transform.SetParent(this.iconParent, false);
         icon.transform.localPosition =  this.buttonPositions[_index] + new Vector3(-30f, 0f, 0f);
-        icon.Init(_emotion, this.npcParent, _targetPosition);
+        icon.Init(_emotion, _targetPosition);
         this.icons.Add(icon);
     }
     public void Finish(ChoiceButton _button)

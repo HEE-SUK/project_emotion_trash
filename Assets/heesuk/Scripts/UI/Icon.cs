@@ -9,13 +9,12 @@ public class Icon : MonoBehaviour
     private Image image = null;
     [SerializeField]
     private Sprite[] sprites = {};
-    public Transform npcParnet = null;
     private Vector3 targetPosition = new Vector3();
+    public CanvasGroup canvasGroup = null;
 
-    public void Init(EMOTION _emotion, Transform _npcParent, Vector3 _targetPosition)
+    public void Init(EMOTION _emotion, Vector3 _targetPosition)
     {
         this.image.sprite = this.sprites[(int)_emotion];
-        this.npcParnet = _npcParent;
         this.targetPosition = Camera.main.WorldToScreenPoint(_targetPosition);
         this.transform.localScale = Vector3.zero;
         this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
@@ -27,18 +26,32 @@ public class Icon : MonoBehaviour
         // iMAGE 문제
 
         // 던지기
-        // this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
-        // this.transform.DOScaleX(0.5f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
-
-        this.transform.DOMove(this.targetPosition, 2f).OnComplete(() => {
-            
-            Debug.Log($" {this.transform.position} / {this.targetPosition}");
-            EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
-            // this.Finish();
+        this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
+        this.transform.DOScaleX(0.5f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.transform.DOBlendableRotateBy(Vector3.zero, 0.5f).SetEase(Ease.OutBounce).OnComplete(() => {
+            this.StartCoroutine(this.Fade());
         });
+
+        this.transform.DOJump(this.targetPosition + new Vector3(0f, 0.2f, 0f), 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
+            
+            EventManager.emit(EVENT_TYPE.PLAYER_BUFF, this, _buff);
+            this.Finish();
+        });
+    }
+
+    private IEnumerator Fade()
+    {
+        this.canvasGroup.alpha = 1f;
+        while (this.canvasGroup.alpha > 0)
+        {
+            this.canvasGroup.alpha -= 0.2f;
+            yield return new WaitForSeconds(0.025f);
+        }
+        this.canvasGroup.alpha = 0;
     }
     public void Finish() 
     {
+        this.StopAllCoroutines();
         // 제거
         this.transform.DOScaleY(0f, 0.15f);
         this.transform.DOScaleX(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack).OnComplete(() => {
