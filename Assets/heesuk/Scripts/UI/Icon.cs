@@ -23,8 +23,6 @@ public class Icon : MonoBehaviour
 
     public void Trash(Buff _buff) 
     {   
-        // iMAGE 문제
-
         // 던지기
         this.transform.DOScaleY(1f, 0.15f).SetEase(Ease.OutBack);
         this.transform.DOScaleX(0.5f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);
