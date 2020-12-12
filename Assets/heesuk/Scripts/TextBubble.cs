@@ -26,25 +26,13 @@ public class TextBubble : MonoBehaviour
     
     public void On(List<string> _dialogs)
     {
+        GameManager.Instance.isTalk = true;
         this.ReadyImage.gameObject.SetActive(false);
         
         this.dialogs = _dialogs;
         this.StartCoroutine(this.Dialog(this.dialogs));
     }
 
-    // private void Update() {
-        
-    //     if(Input.GetKeyDown(KeyCode.F))
-    //     {
-    //         this.OnButtonSkip();
-    //     }
-    // }
-
-    // public void OnButtonSkip()
-    // {
-    //     if(!this.isReadyNext) { return; }
-    //     // 다음 글
-    // }
     
     private IEnumerator Dialog(List<string> _dialogs)
     {
@@ -59,6 +47,7 @@ public class TextBubble : MonoBehaviour
         }
         EventManager.emit(EVENT_TYPE.START_CHOICE, this);
     }
+
     private IEnumerator Typing(string _text)
     {
         this.ReadyImage.gameObject.SetActive(false);
@@ -72,6 +61,8 @@ public class TextBubble : MonoBehaviour
         }
         this.dialogText.text = _text;
         this.isReadyNext = true;
+
+        this.ReadyImage.gameObject.SetActive(true);
         this.ReadyImage.DOKill();
         this.ReadyImage.transform.DOScaleX(1f, 0.1f).SetEase(Ease.OutBack);
         this.ReadyImage.transform.DOScaleY(1f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
@@ -85,9 +76,11 @@ public class TextBubble : MonoBehaviour
                 break;
             }
         }
+
         this.ReadyImage.DOKill();
         this.ReadyImage.transform.DOScaleX(0f, 0.1f).SetEase(Ease.OutBack);
         this.ReadyImage.transform.DOScaleY(0f, 0.1f).SetDelay(0.05f).SetEase(Ease.OutBack);
+        this.ReadyImage.gameObject.SetActive(false);
     }
 
     public void Off()

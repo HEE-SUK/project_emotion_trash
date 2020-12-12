@@ -25,6 +25,9 @@ public class NpcHilight : MonoBehaviour
 
     void Update()
     {
+        // 대화중 예외처리
+        if(GameManager.Instance.isTalk) { return; }
+
         float distance = (this.Player.transform.localPosition - this.transform.localPosition).magnitude;
         if(distance < 2f)
         {

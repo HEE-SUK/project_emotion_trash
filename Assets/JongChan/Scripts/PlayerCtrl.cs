@@ -17,6 +17,9 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        // 대화중 예외처리
+        if(GameManager.Instance.isTalk) { return; }
+
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if(Input.GetButtonUp("Horizontal"))
