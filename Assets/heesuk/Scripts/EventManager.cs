@@ -11,6 +11,7 @@ public enum EVENT_TYPE {
     PLAYER_DEAD,
 
     PLAYER_BUFF,
+    TRASH_CHOICE,
 
 }
 

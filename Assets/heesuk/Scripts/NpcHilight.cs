@@ -19,7 +19,7 @@ public class NpcHilight : MonoBehaviour
 
     // 지문의 갯수가 됩니다.
     [SerializeField]
-    private EMOTION[] emotionTypes = {EMOTION.YELLO, EMOTION.YELLO, EMOTION.YELLO, EMOTION.YELLO, EMOTION.YELLO};
+    private EMOTION[] emotionTypes = {EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A, EMOTION.A};
     [SerializeField]
     private string[] emotionText = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
     [SerializeField]
@@ -93,7 +93,7 @@ public class NpcHilight : MonoBehaviour
 
                 this.textBubble.Answer(answers, new Buff(stat, value, statText));
                 this.Finish();
-            }));
+            }, this.transform.position));
         }
     }
 

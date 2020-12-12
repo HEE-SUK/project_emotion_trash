@@ -5,8 +5,6 @@ using DG.Tweening;
 public class UICanvas : MonoBehaviour
 {
     [SerializeField]
-    private Camera mainCamera = null;
-    [SerializeField]
     private ChoicePanel choicePanel = null;
 
     public void Start()
