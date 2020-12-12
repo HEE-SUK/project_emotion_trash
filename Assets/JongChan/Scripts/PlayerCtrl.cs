@@ -116,6 +116,8 @@ public class PlayerCtrl : MonoBehaviour
         else if (col.collider.CompareTag("Enemy"))
         {
             PlayerLife--;
+            // ui에 hp 전송
+            EventManager.emit(EVENT_TYPE.UPDATE_HP, this, this.PlayerLife);
         }
     }
 }
