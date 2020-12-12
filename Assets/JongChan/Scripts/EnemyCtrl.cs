@@ -72,6 +72,7 @@ public class EnemyCtrl : MonoBehaviour
         if (col.CompareTag("Weapon"))
         {
             enemyHp -= SwordCtrl.Instance.weaponDamage + SwordCtrl.Instance.weaponBuff;
+            Debug.Log("fdsa");
         }
     }
 
