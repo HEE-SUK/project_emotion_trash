@@ -42,6 +42,8 @@ public class EnemyCtrl : MonoBehaviour
         cc = GetComponentInChildren<CircleCollider2D>();
 
         StartCoroutine("ChangeMovement");
+
+        SwordCtrl.Instance.weaponBuff = 1f;
     }
 
     // Update is called once per frame
@@ -49,8 +51,8 @@ public class EnemyCtrl : MonoBehaviour
     {
         Move();
 
-        if (enemyHp <= 0)
-            Destroy(gameObject);
+        if (this.enemyHp <= 0)
+            Destroy(this.gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -58,6 +60,11 @@ public class EnemyCtrl : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             traceTarget = col.gameObject;
+        }
+
+        if (col.CompareTag("Weapon"))
+        {
+            enemyHp -= SwordCtrl.Instance.weaponDamage * SwordCtrl.Instance.weaponBuff;
         }
     }
 
