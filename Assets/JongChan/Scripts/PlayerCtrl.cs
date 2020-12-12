@@ -113,7 +113,7 @@ public class PlayerCtrl : MonoBehaviour
             this.isjump = this.originjump;
         }
 
-        if (col.collider.CompareTag("Enemy"))
+        else if (col.collider.CompareTag("Enemy"))
         {
             PlayerLife--;
         }
