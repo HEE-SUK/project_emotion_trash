@@ -1960,6 +1960,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1135031384}
+    - target: {fileID: 1358007566307201866, guid: c4908930e9f5dab46ad98dac58028371,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1358007566307201867, guid: c4908930e9f5dab46ad98dac58028371,
         type: 3}
       propertyPath: m_LocalPosition.x

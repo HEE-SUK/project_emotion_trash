@@ -14,8 +14,10 @@ public class PlayerCtrl : MonoBehaviour
     private int isjump = 2;
     public int PlayerLife = 3;
 
+    private bool isDead = false;
     void Start()
     {
+        this.isDead = false;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -30,16 +32,19 @@ public class PlayerCtrl : MonoBehaviour
 
         LookAt();
 
-        if (PlayerLife == 0)
+        if (PlayerLife == 0 || !this.isDead)
         {
+            this.isDead = true;
             Debug.Log("dead");
             anim.SetTrigger("isDeath");
             PlayerLife = -1;
+            EventManager.emit(EVENT_TYPE.PLAYER_DEAD, this);
         }
     }
 
     void Move()
     {
+        if(this.isDead) { return; }
         float Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonUp("Horizontal"))
