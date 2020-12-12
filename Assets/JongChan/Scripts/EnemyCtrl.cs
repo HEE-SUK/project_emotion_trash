@@ -134,19 +134,19 @@ public class EnemyCtrl : MonoBehaviour
 
             case EnemyType.enemy2:
                 enemyHp = 1;
-                movePower = 5;
+                movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.enemy3:
                 enemyHp = 1;
-                movePower = 5;
+                movePower = 3;
                 cc.radius = 5;
                 break;
 
             case EnemyType.enemy4:
                 enemyHp = 1;
-                movePower = 5;
+                movePower = 3;
                 cc.radius = 5;
                 break;
         }
