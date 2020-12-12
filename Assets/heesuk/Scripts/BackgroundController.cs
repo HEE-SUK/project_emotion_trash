@@ -29,7 +29,7 @@ public class BackgroundController : MonoBehaviour
         this.backgroundRenderer.material.SetTextureOffset("_MainTex", new Vector2(this.backgroundOffset, 0));
         this.cloudRenderer.material.SetTextureOffset("_MainTex", new Vector2(this.cloudOffset, 0));
         this.treeRenderer.material.SetTextureOffset("_MainTex", new Vector2(this.treeOffset, 0));
-        this.treeRenderer.transform.localPosition = new Vector3(0f, -this.player.transform.position.y);
+        this.treeRenderer.transform.localPosition = new Vector3(0f, -this.player.transform.position.y * 0.5f);
 
     }
 }
