@@ -38,6 +38,9 @@ public class NpcHilight : MonoBehaviour
     private string[] answerText3 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
     [SerializeField]
     private string[] answerText4 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
+
+    [SerializeField]
+    private string[] statTexts = {};
     private bool isFinished = false;
     void Start()
     {
@@ -85,9 +88,10 @@ public class NpcHilight : MonoBehaviour
             }
             STAT stat = this.statTypes[i];
             float value = this.statValues[i];
+            string statText = this.statTexts[i];
             this.choices.Add(new Choice(emotion, emotionText, () => {
 
-                this.textBubble.Answer(answers, new Buff(stat, value));
+                this.textBubble.Answer(answers, new Buff(stat, value, statText));
                 this.Finish();
             }));
         }
