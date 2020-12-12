@@ -22,20 +22,16 @@ public class PlayerCtrl : MonoBehaviour
 
         Move();
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            Vector3 mPosition = Input.mousePosition;
+        Vector3 mPosition = Input.mousePosition;
 
-            if (mPosition.x <= Screen.width / 2)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-
-            if (mPosition.x >= Screen.width / 2)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-        //}
+        if (mPosition.x <= Screen.width / 2)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (mPosition.x >= Screen.width / 2)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void Move()

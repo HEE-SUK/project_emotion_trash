@@ -37,12 +37,12 @@ public class EnemyCtrl : MonoBehaviour
         cc = GetComponentInChildren<CircleCollider2D>();
 
         StartCoroutine("ChangeMovement");
+        CheakType();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheakType();
         Move();
 
         if (enemyHp <= 0)
