@@ -30,6 +30,8 @@ public class ChoicePanel : MonoBehaviour
     [SerializeField]
     private GameObject choiceButtonPrefab = null;
 
+
+    private List<ChoiceButton> choiceButtons = new List<ChoiceButton>();
     public void Init(List<Choice> _choices)
     {
         this.StartCoroutine(this.Create(_choices));
@@ -49,5 +51,14 @@ public class ChoicePanel : MonoBehaviour
         ChoiceButton choiceButton = Instantiate(this.choiceButtonPrefab).GetComponent<ChoiceButton>();
         choiceButton.transform.SetParent(this.transform, false);
         choiceButton.Init(_choice);
+        this.choiceButtons.Add(choiceButton);
+    }
+
+    public void Finish()
+    {
+        // foreach (var item in collection)
+        // {
+            
+        // }
     }
 }
