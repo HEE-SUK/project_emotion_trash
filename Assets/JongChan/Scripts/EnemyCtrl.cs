@@ -5,15 +5,21 @@ using UnityEngine;
 public class EnemyCtrl : MonoBehaviour
 {
     Rigidbody2D rb;
-
     GameObject traceTarget;
 
-    [SerializeField] float movePower;
-
     Vector3 movement;
-    bool isTracing = false;
-    int movementFlag = 0;
+    public float movePower;
     public int creatureType = 0;
+    int movementFlag = 0;
+    bool isTracing = false;
+    public int enemyHp = 1;
+
+    public static EnemyCtrl Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +33,9 @@ public class EnemyCtrl : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (enemyHp <= 0)
+            Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D col)
