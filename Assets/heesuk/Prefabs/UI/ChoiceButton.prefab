@@ -147,11 +147,10 @@ MonoBehaviour:
   buttonText: {fileID: 2458582694194543377}
   emotionImage: {fileID: 1383056469887885188}
   emotionsprites:
-  - {fileID: 21300000, guid: 009d0787859cce642a926c809b115102, type: 3}
-  - {fileID: 21300000, guid: 05ba3ad9e970c9341b338939844f8be6, type: 3}
-  - {fileID: 21300000, guid: 477214d4f31b26e46ad92a67f3991e68, type: 3}
-  - {fileID: 21300000, guid: 6cda2f582a625124eaece784799359e4, type: 3}
-  - {fileID: 21300000, guid: 84dba9c0e672cb842bcda15b83360ee1, type: 3}
+  - {fileID: -2848088007318058735, guid: e08e255ccf42bef4d9c146642d405f15, type: 3}
+  - {fileID: 6047309851494278612, guid: e08e255ccf42bef4d9c146642d405f15, type: 3}
+  - {fileID: -6255461593010983782, guid: e08e255ccf42bef4d9c146642d405f15, type: 3}
+  - {fileID: -6011330544038211899, guid: e08e255ccf42bef4d9c146642d405f15, type: 3}
 --- !u!1 &4358424218644348336
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +186,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 93.75, y: 93.75}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6029519512363000628
 CanvasRenderer:
@@ -216,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1729890776398675679, guid: d22ba5bed77a4324f8a38f63be596ff6,
+  m_Sprite: {fileID: -2848088007318058735, guid: e08e255ccf42bef4d9c146642d405f15,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
