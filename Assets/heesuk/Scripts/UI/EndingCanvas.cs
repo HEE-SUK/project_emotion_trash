@@ -36,7 +36,7 @@ public class EndingCanvas : MonoBehaviour
     public void GoMainScene(EVENT_TYPE EventType, Component Sender, object Param = null)
     {
         this.StartCoroutine(this.Fade(true, 1f, () => {
-            SceneManager.LoadScene("Intro");
+            SceneManager.LoadScene("IntroGame");
         }));
     }
     private void OnDestroy() {
