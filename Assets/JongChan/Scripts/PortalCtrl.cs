@@ -6,6 +6,6 @@ public class PortalCtrl : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(".");
+        EventManager.emit(EVENT_TYPE.GO_ENDING, this);
     }
 }
