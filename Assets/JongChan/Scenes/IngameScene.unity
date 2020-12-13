@@ -398,16 +398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3992330335211699278, guid: 84af3450e5f72c34ba7b124f64115712,
-        type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992330335211699278, guid: 84af3450e5f72c34ba7b124f64115712,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 3992330336474684256, guid: 84af3450e5f72c34ba7b124f64115712,
         type: 3}
       propertyPath: m_Name
