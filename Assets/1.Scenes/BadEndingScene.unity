@@ -967,6 +967,7 @@ MonoBehaviour:
   - 
   - 
   isZoomIn: 0
+  isEnding: 1
 --- !u!1 &1398437429
 GameObject:
   m_ObjectHideFlags: 0
@@ -9923,6 +9924,7 @@ MonoBehaviour:
   - 
   - 
   isZoomIn: 0
+  isEnding: 0
 --- !u!1 &1967475490
 GameObject:
   m_ObjectHideFlags: 0
@@ -10340,6 +10342,7 @@ MonoBehaviour:
   - 
   - 
   isZoomIn: 0
+  isEnding: 0
 --- !u!1 &6212775798721974430
 GameObject:
   m_ObjectHideFlags: 0

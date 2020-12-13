@@ -1276,6 +1276,11 @@ PrefabInstance:
       propertyPath: answerText3.Array.data[3]
       value: "\uCC98\uC74C\uC774\uB124"
       objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: isEnding
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9186100986973140566, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: m_Name
@@ -1468,6 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9336111fdef76ff4f9a4a2df6ed9abf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadePanel: {fileID: 0}
   choicePanel: {fileID: 27116321}
 --- !u!114 &954307815
 MonoBehaviour:
