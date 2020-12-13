@@ -17,6 +17,6 @@ public class GameOverPanel : MonoBehaviour
      
     public void OnButtonRetry()
     {
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("MainScene");
     }
 }
