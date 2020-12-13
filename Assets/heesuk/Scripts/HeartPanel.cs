@@ -16,6 +16,10 @@ public class HeartPanel : MonoBehaviour
     public void Update_UI(EVENT_TYPE EventType, Component Sender, object Param = null)
     {
         int hp = (int)Param;
+        if(hp > 5)
+        {
+            hp = 5;
+        }
 
         foreach (var item in this.heartImages)
         {

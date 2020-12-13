@@ -21,7 +21,8 @@ public class BackgroundController : MonoBehaviour
 
     public void Update()
     {
-        this.transform.position = this.player.transform.position;
+        Vector3 target = new Vector3(this.player.transform.position.x, this.player.transform.position.y * 0.5f, 0f);
+        this.transform.position = target;
         this.backgroundOffset += Time.deltaTime * (backgroundSpeed * this.player.rb.velocity.x);
         this.cloudOffset += Time.deltaTime *  (cloudSpeed * this.player.rb.velocity.x);
         this.treeOffset += Time.deltaTime *  (treeSpeed * this.player.rb.velocity.x);

@@ -35,7 +35,6 @@ public class PlayerCtrl : MonoBehaviour
 
         LookAt();
 
-        Debug.Log($"{this.isDead}");
         if (PlayerLife == 0 && !this.isDead)
         {
             this.isDead = true;
@@ -140,7 +139,7 @@ public class PlayerCtrl : MonoBehaviour
         else if (col.collider.CompareTag("Enemy"))
         {
             AudioManager.PlaySfx(SFX.PLAYER_ATTACKED);
-            Debug.Log("jhfd");
+            EventManager.emit(EVENT_TYPE.PLAYER_ATTACKED, this);
             isHit = true;
             if (isHit)
                 gameObject.layer = 11;
