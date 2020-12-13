@@ -19,6 +19,7 @@ public class DialogInfo : MonoBehaviour
 
 
     public bool isZoomIn = false;
+    public bool isEnding = false;
 
     public void Init(TextBubble _textBubble, CallbackEvent _nextCallback, CallbackEvent _finishCallback, bool _isFinish)
     {
@@ -69,6 +70,18 @@ public class DialogInfo : MonoBehaviour
                 if(this.isZoomIn)
                 {
                     EventManager.emit(EVENT_TYPE.CLOSE_UP, this);
+                }
+                if(this.isEnding)
+                {
+                    if(GameManager.Instance.endingPoint >= 2)
+                    {
+                        AudioManager.PlayBgm(BGM.GOOD_ENDING);
+                    }
+                    else
+                    {
+                        AudioManager.PlayBgm(BGM.BAD_ENDING);
+                    }
+                    
                 }
                 _finishCallback();
                 _textBubble.IntroAnswer(answers, _nextCallback, _isFinish);
