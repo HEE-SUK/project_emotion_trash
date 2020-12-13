@@ -49,6 +49,10 @@ public class TextBubble : MonoBehaviour
 
         for (int i = 0; i < _dialogs.Count; i++)
         {
+            if(_isFinish && _dialogs.Count ==1)
+            {
+                // 내가 감정 쓰레기통이야!
+            }
             // 대화문 리스트만큼 반복
             yield return this.Typing(_dialogs[i]);
             yield return new WaitForFixedUpdate();
@@ -57,7 +61,7 @@ public class TextBubble : MonoBehaviour
         if(_isFinish) 
         {
             // 마지막 인덱스
-            EventManager.emit(EVENT_TYPE.GO_MAIN, this);
+                EventManager.emit(EVENT_TYPE.GO_MAIN, this);
             this.bubbleImage.DOKill();
             this.bubbleImage.transform.DOScaleX(0f, 0.15f).SetEase(Ease.OutBack);
             this.bubbleImage.transform.DOScaleY(0f, 0.15f).SetDelay(0.05f).SetEase(Ease.OutBack);

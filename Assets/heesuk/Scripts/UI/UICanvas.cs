@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class UICanvas : MonoBehaviour
 {
     [SerializeField]
@@ -11,12 +12,12 @@ public class UICanvas : MonoBehaviour
     private GameObject gameOverPrefab = null;
     public void Start()
     {
+        GameManager.Instance.endingPoint = 0;
         AudioManager.SetVolumeBgm(0.3f);
         AudioManager.PlayBgm(BGM.MAIN);
         EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
         EventManager.on(EVENT_TYPE.PLAYER_DEAD, this.ShowGameOverPanel);
-        EventManager.on(EVENT_TYPE.GO_GOOD, this.GoGood);
-        EventManager.on(EVENT_TYPE.GO_BAD, this.GoBad);
+        EventManager.on(EVENT_TYPE.GO_ENDING, this.GoEnding);
     }
 
     public void ShowChoicePanel(EVENT_TYPE EventType, Component Sender, object Param = null)
@@ -31,24 +32,24 @@ public class UICanvas : MonoBehaviour
         gameOverPanel.transform.SetParent(this.transform, false);
         gameOverPanel.Init();
     }
-    public void GoGood(EVENT_TYPE EventType, Component Sender, object Param = null)
+    public void GoEnding(EVENT_TYPE EventType, Component Sender, object Param = null)
     {
+        if(GameManager.Instance.endingPoint >=2)
+        {
+            SceneManager.LoadScene("GoodEndingScene");
+
+        }
+        else
+        {
+            SceneManager.LoadScene("BadEndingScene");
+        }
         // 굿엔딩
-        GameManager.Instance.nextSceneName = "Intro";
-        EventManager.emit(EVENT_TYPE.CLOSE_UP, this);
-    }
-    public void GoBad(EVENT_TYPE EventType, Component Sender, object Param = null)
-    {
-        // 베드엔딩
-        GameManager.Instance.nextSceneName = "Intro";
-        EventManager.emit(EVENT_TYPE.CLOSE_UP, this);
     }
 
     private void OnDestroy() {
         
         EventManager.off(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
         EventManager.off(EVENT_TYPE.PLAYER_DEAD, this.ShowGameOverPanel);
-        EventManager.off(EVENT_TYPE.GO_GOOD, this.GoGood);
-        EventManager.off(EVENT_TYPE.GO_BAD, this.GoBad);
+        EventManager.off(EVENT_TYPE.GO_ENDING, this.GoEnding);
     }
 }
