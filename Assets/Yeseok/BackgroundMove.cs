@@ -8,7 +8,7 @@ using System.Collections;
     private Renderer m_Renderer;
     public GameObject backScroll;
     public float BackWalltime;
-    private float _startOff, _targetOff;
+    // private float _startOff, _targetOff;
     private float z = 0f;
     private void Start()
     {
@@ -26,7 +26,7 @@ using System.Collections;
             z = 1f;
             return;
         }
-        m_Renderer.material.SetTextureOffset("_MainTex", new Vector2(((1f - z) * _startOff + z * _targetOff), 0));
+        // m_Renderer.material.SetTextureOffset("_MainTex", new Vector2(((1f - z) * _startOff + z * _targetOff), 0));
 
 
     }

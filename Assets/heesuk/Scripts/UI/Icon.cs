@@ -30,8 +30,9 @@ public class Icon : MonoBehaviour
         this.transform.DOBlendableRotateBy(new Vector3(0f, 0f, 60f), 0.5f).SetEase(Ease.OutBounce).OnComplete(() => {
             this.StartCoroutine(this.Fade());
         });
-
-        this.transform.DOJump(this.targetPosition + new Vector3(10f, 20f, 0f), 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
+        
+        Vector3 offset = new Vector3(10f, 10f, 0f);
+        this.transform.DOJump(this.targetPosition + offset, 10f, 1, 1f).SetEase(Ease.OutBounce).OnComplete(() => {
             _choice.callback();
             this.Finish();
         });
@@ -43,7 +44,7 @@ public class Icon : MonoBehaviour
         while (this.canvasGroup.alpha > 0)
         {
             this.canvasGroup.alpha -= 0.2f;
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.015f);
         }
         this.canvasGroup.alpha = 0;
     }

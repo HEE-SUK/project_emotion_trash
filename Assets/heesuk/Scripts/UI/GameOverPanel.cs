@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour
 {
-    [SerializeField]
-    private Button gameoverButton = null;
-
 
     public void Init()
     {
