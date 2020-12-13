@@ -955,6 +955,81 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionTypes.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionTypes.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionText.Array.data[0]
+      value: "\uBB50 \uBA39\uC73C\uB7EC \uB098\uAC08\uAE4C?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionText.Array.data[1]
+      value: "..... \uBC25\uC740?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.data[0]
+      value: "... \uC774\uBBF8 \uBA39\uC5C8\uC5B4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.data[1]
+      value: "\uC774\uC81C\uC640\uC11C \uC65C \uCE5C\uD55C\uCC99\uC774\uC57C?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.data[2]
+      value: " ....... \uD798\uB4E4\uB2E4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.data[0]
+      value: " ... \uC774\uBBF8 \uBA39\uC5C8\uC5B4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.data[1]
+      value: "\uC774\uC81C\uC640\uC11C \uC65C \uCE5C\uD55C\uCC99\uC774\uC57C?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.data[2]
+      value: "....... \uD798\uB4E4\uB2E4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[0]
+      value: "\uC5EC\uC804\uD558\uB124"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775799748793914, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[1]
+      value: "\uB098\uB3C4 \uC9C0\uCCE4\uC5B4."
+      objectReference: {fileID: 0}
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: dialogs.Array.size
@@ -963,12 +1038,12 @@ PrefabInstance:
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: answerText0.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: answerText1.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
@@ -998,7 +1073,7 @@ PrefabInstance:
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: answerText0.Array.data[0]
-      value: "\uC5EC\uC804\uD558\uB124"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
@@ -1024,6 +1099,37 @@ PrefabInstance:
         type: 3}
       propertyPath: emotionTypes.Array.data[0]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[1]
+      value: "\uC774\uC81C\uC640\uC11C \uC65C \uCE5C\uD55C\uCC99\uC774\uC57C?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[2]
+      value: " ....... \uD798\uB4E4\uB2E4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[3]
+      value: "\uB9CE\uC774 \uD798\uB4E4\uC5B4\uB3C4 \uB2E4 \uC798\uB420\uAC70\uC57C.
+        \uD798\uB0B4!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800371385681, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[0]
+      value: "... \uC774\uBBF8 \uBA39\uC5C8\uC5B4"
       objectReference: {fileID: 0}
     - target: {fileID: 9186100986973140566, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
