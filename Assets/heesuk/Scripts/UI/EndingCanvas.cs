@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class EndingCanvas : MonoBehaviour
 {
-    // [SerializeField]?
+    [SerializeField]
+    private Image slime = null;
     [SerializeField]
     private CanvasGroup fadePanel = null;
     [SerializeField]
     private ChoicePanel choicePanel = null;
 
+    public bool isBad = false;
+
     void Start()
     {
+        this.slime.transform.localPosition = new Vector3(0f,500f,0f);
         this.fadePanel.alpha = 1f;
         this.StartCoroutine(this.Fade(false, 0f, () => { }));
         AudioManager.SetVolumeBgm(0.5f);
@@ -50,6 +55,14 @@ public class EndingCanvas : MonoBehaviour
                 this.fadePanel.alpha += value;
                 yield return new WaitForSeconds(0.05f);
             }
+            if(this.isBad)
+            {
+                this.slime.transform.DOMoveX(0f,1f).SetEase(Ease.OutBounce);
+                yield return new WaitForSeconds(1f);
+            }
+            
+            yield return new WaitForSeconds(1f);
+            _callback();
         }
         else
         {
@@ -58,7 +71,7 @@ public class EndingCanvas : MonoBehaviour
                 this.fadePanel.alpha += value;
                 yield return new WaitForSeconds(0.05f);
             }
+            _callback();
         }
-        _callback();
     }
 }
