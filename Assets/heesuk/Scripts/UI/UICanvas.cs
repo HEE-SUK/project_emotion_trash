@@ -32,8 +32,10 @@ public class UICanvas : MonoBehaviour
         gameOverPanel.transform.SetParent(this.transform, false);
         gameOverPanel.Init();
     }
+
     public void GoEnding(EVENT_TYPE EventType, Component Sender, object Param = null)
-    {
+    {   
+        Debug.Log("asd");
         if(GameManager.Instance.endingPoint >=2)
         {
             SceneManager.LoadScene("GoodEndingScene");
