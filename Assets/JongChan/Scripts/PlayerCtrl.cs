@@ -12,7 +12,7 @@ public class PlayerCtrl : MonoBehaviour
     public float jumpPower;
     public int originjump = 2;
     private int isjump = 2;
-    [HideInInspector] public int PlayerLife = 5;
+    public int PlayerLife = 3;
     private float invincibilityTime = 1;
     private bool isHit = false;
 
