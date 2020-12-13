@@ -51,6 +51,8 @@ public class EnemyCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.isTalk) { return; }
+        
         Move();
 
         if (this.enemyHp <= 0)
