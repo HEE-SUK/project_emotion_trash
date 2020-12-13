@@ -14,8 +14,7 @@ public enum EVENT_TYPE {
     TRASH_CHOICE,
     UPDATE_HP,
     GO_MAIN,
-    GO_GOOD,
-    GO_BAD,
+    GO_ENDING,
 }
 
 public class EventManager: Singleton<EventManager> 

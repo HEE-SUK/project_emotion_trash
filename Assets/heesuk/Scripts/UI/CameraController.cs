@@ -56,6 +56,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+
     private void CloseUp(EVENT_TYPE eventType, Component sender, object param = null)
     {
         this.StopAllCoroutines();
@@ -69,7 +70,6 @@ public class CameraController : MonoBehaviour
         this.transform.DOLocalMove(targetPosition,0.4f);
         this.mainCamera.orthographicSize = this.originSize;
         this.mainCamera.DOOrthoSize(this.endSize, 1f).SetEase(Ease.OutBack).SetUpdate(true).OnComplete(() => {
-            SceneManager.LoadScene(GameManager.Instance.nextSceneName);
         });
     }
 

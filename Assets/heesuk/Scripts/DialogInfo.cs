@@ -18,6 +18,8 @@ public class DialogInfo : MonoBehaviour
     public string[] answerText4 = {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
 
 
+    public bool isZoomIn = false;
+
     public void Init(TextBubble _textBubble, CallbackEvent _nextCallback, CallbackEvent _finishCallback, bool _isFinish)
     {
 
@@ -64,6 +66,10 @@ public class DialogInfo : MonoBehaviour
             Vector3 position = this.transform.position;
             this.choices.Add(new Choice(emotion, emotionText, () => {
                 // 하이라이트 누름
+                if(this.isZoomIn)
+                {
+                    EventManager.emit(EVENT_TYPE.CLOSE_UP, this);
+                }
                 _finishCallback();
                 _textBubble.IntroAnswer(answers, _nextCallback, _isFinish);
             }, position));
