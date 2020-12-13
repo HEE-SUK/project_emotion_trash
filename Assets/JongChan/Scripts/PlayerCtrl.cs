@@ -38,7 +38,6 @@ public class PlayerCtrl : MonoBehaviour
         if (PlayerLife == 0 && !this.isDead)
         {
             this.isDead = true;
-            Debug.Log("dead");
             anim.SetTrigger("isDeath");
             PlayerLife = -1;
             EventManager.emit(EVENT_TYPE.PLAYER_DEAD, this);

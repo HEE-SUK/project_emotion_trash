@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 549543000}
   - component: {fileID: 549542999}
   - component: {fileID: 526034604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 009d0787859cce642a926c809b115102, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05ba3ad9e970c9341b338939844f8be6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -205,10 +205,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4423b394a679b47b1fe945570c8029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 5
+  weapon: 6
   delayTime: 2
-  maxDelayTime: 2
+  maxDelayTime: 0.3
   weaponDamage: 0
+  weaponSprite:
+  - {fileID: 21300000, guid: 009d0787859cce642a926c809b115102, type: 3}
+  - {fileID: 21300000, guid: 05ba3ad9e970c9341b338939844f8be6, type: 3}
+  - {fileID: 21300000, guid: 477214d4f31b26e46ad92a67f3991e68, type: 3}
+  - {fileID: 21300000, guid: 6cda2f582a625124eaece784799359e4, type: 3}
+  - {fileID: 21300000, guid: 84dba9c0e672cb842bcda15b83360ee1, type: 3}
+  - {fileID: 21300000, guid: d35ca9828d9221548a7307471535e67e, type: 3}
+  - {fileID: 21300000, guid: 5791ba50e86fdc04e863b95d524b4f94, type: 3}
+  ewar: {fileID: 21300000, guid: 5791ba50e86fdc04e863b95d524b4f94, type: 3}
   weaponBuff: 1
 --- !u!95 &526034604
 Animator:
@@ -366,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0871ff41f2778824a9bbc7d39a01d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   moveSpeed: 10
   jumpPower: 50
   originjump: 2
