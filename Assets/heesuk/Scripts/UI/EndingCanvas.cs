@@ -14,8 +14,8 @@ public class EndingCanvas : MonoBehaviour
     {
         this.fadePanel.alpha = 1f;
         this.StartCoroutine(this.Fade(false, 0f, () => { }));
-        AudioManager.SetVolumeBgm(0.3f);
-        AudioManager.PlayBgm(BGM.MAIN);
+        AudioManager.SetVolumeBgm(0.5f);
+        AudioManager.PlayBgm(BGM.INTRO);
         EventManager.on(EVENT_TYPE.GO_MAIN, this.GoMainScene);
         EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
     }
