@@ -955,6 +955,76 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[1]
+      value: '.....  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[2]
+      value: ".... \uC5B4\uB514\uAC14\uB2E4 \uC654\uC5B4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: dialogs.Array.data[0]
+      value: ....
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionText.Array.data[0]
+      value: "\uC54C \uD544\uC694 \uC5C6\uC796\uC544"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionText.Array.data[1]
+      value: "\uC544\uBB34 \uB9D0\uB3C4 \uC548\uD55C\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.data[0]
+      value: "\uC5EC\uC804\uD558\uB124"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText0.Array.data[1]
+      value: "\uB098\uB3C4 \uC9C0\uCCE4\uC5B4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.data[0]
+      value: "\uC5EC\uC804\uD558\uB124"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: answerText1.Array.data[1]
+      value: "\uB098\uB3C4 \uC9C0\uCCE4\uC5B4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionTypes.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212775800326293142, guid: c673ae8b04c73504bb590ab2d77690fd,
+        type: 3}
+      propertyPath: emotionTypes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9186100986973140566, guid: c673ae8b04c73504bb590ab2d77690fd,
         type: 3}
       propertyPath: m_Name
