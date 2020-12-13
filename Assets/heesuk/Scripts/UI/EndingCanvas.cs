@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using TMPro;
 
 public class EndingCanvas : MonoBehaviour
 {
     [SerializeField]
     private Image slime = null;
+    [SerializeField]
+    private TextMeshProUGUI slimeText = null;
     [SerializeField]
     private CanvasGroup fadePanel = null;
     [SerializeField]
@@ -18,6 +21,7 @@ public class EndingCanvas : MonoBehaviour
 
     void Start()
     {
+        this.slimeText.text = string.Empty;
         this.slime.transform.localPosition = new Vector3(0f,500f,0f);
         this.fadePanel.alpha = 1f;
         this.StartCoroutine(this.Fade(false, 0f, () => { }));
@@ -57,7 +61,8 @@ public class EndingCanvas : MonoBehaviour
             }
             if(this.isBad)
             {
-                this.slime.transform.DOMoveX(0f,1f).SetEase(Ease.OutBounce);
+                this.slime.transform.DOMoveY(200f, 1f).SetEase(Ease.OutBounce);
+                this.slimeText.text = "나는 몬스터가 되어버렸다...";
                 yield return new WaitForSeconds(1f);
             }
             
