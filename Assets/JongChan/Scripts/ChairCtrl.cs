@@ -8,6 +8,7 @@ public class ChairCtrl : MonoBehaviour
     {
         if (col.CompareTag("Weapon"))
         {
+            AudioManager.PlaySfx(SFX.PLAYER_ATTACKED);
             Destroy(gameObject);
         }
     }
