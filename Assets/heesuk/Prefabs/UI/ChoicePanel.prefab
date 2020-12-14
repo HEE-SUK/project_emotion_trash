@@ -80,6 +80,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2252966957315437891}
   - component: {fileID: 7388034314449618801}
+  - component: {fileID: 4309133183214164664}
+  - component: {fileID: 7513139092088314848}
   m_Layer: 5
   m_Name: ChoicePanel
   m_TagString: Untagged
@@ -120,10 +122,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b565b1a11477a40bbf2863aedd9276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcParent: {fileID: 0}
   choiceButtonParent: {fileID: 1826583789478841914}
   iconParent: {fileID: 3525093283479622375}
   iconPrefab: {fileID: 7282605041120229437, guid: ed46ba6fb57ed4b4ab54765c02f349b9,
     type: 3}
   choiceButtonPrefab: {fileID: 573229183682306254, guid: 974eb6efbf64c734bb666052ef4de12b,
     type: 3}
+--- !u!222 &4309133183214164664
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451038827388430735}
+  m_CullTransparentMesh: 0
+--- !u!114 &7513139092088314848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451038827388430735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

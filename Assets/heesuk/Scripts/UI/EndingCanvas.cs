@@ -22,11 +22,11 @@ public class EndingCanvas : MonoBehaviour
     void Start()
     {
         this.slimeText.text = string.Empty;
-        this.slime.transform.localPosition = new Vector3(0f,500f,0f);
+        this.slime.transform.localPosition = new Vector3(50f,500f,0f);
         this.fadePanel.alpha = 1f;
         this.StartCoroutine(this.Fade(false, 0f, () => { }));
         AudioManager.SetVolumeBgm(0.5f);
-        AudioManager.PlayBgm(BGM.INTRO);
+        AudioManager.StopBgm();
         EventManager.on(EVENT_TYPE.GO_MAIN, this.GoMainScene);
         EventManager.on(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
     }
@@ -56,13 +56,13 @@ public class EndingCanvas : MonoBehaviour
             }
             if(this.isBad)
             {
-                this.slime.transform.DOMoveY(200f, 1f).SetEase(Ease.OutBounce);
+                this.slime.transform.DOLocalMoveY(0f, 1f).SetEase(Ease.OutBounce);
                 this.slimeText.text = "나는 몬스터가 되어버렸다...";
                 yield return new WaitForSeconds(1f);
             }
             else
             {
-                this.slime.transform.DOMoveY(200f, 1f).SetEase(Ease.OutBounce);
+                this.slime.transform.DOLocalMoveY(0f, 1f).SetEase(Ease.OutBounce);
                 this.slimeText.text = "이제 나는 서로를 이해하게 되었다!";
                 yield return new WaitForSeconds(1f);
             }
