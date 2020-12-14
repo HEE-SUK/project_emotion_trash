@@ -43,11 +43,6 @@ public class EndingCanvas : MonoBehaviour
             SceneManager.LoadScene("IntroGame");
         }));
     }
-    private void OnDestroy() {
-        
-        EventManager.off(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
-        EventManager.off(EVENT_TYPE.GO_MAIN, this.GoMainScene);
-    }
     private IEnumerator Fade(bool _isUp ,  float _value, CallbackEvent _callback)
     {
         float value = (_isUp)? 0.05f : -0.05f;
@@ -65,6 +60,12 @@ public class EndingCanvas : MonoBehaviour
                 this.slimeText.text = "나는 몬스터가 되어버렸다...";
                 yield return new WaitForSeconds(1f);
             }
+            else
+            {
+                this.slime.transform.DOMoveY(200f, 1f).SetEase(Ease.OutBounce);
+                this.slimeText.text = "이제 나는 서로를 이해하게 되었다!";
+                yield return new WaitForSeconds(1f);
+            }
             
             yield return new WaitForSeconds(1f);
             _callback();
@@ -78,5 +79,10 @@ public class EndingCanvas : MonoBehaviour
             }
             _callback();
         }
+    }
+    private void OnDestroy() {
+        
+        EventManager.off(EVENT_TYPE.START_CHOICE, this.ShowChoicePanel);
+        EventManager.off(EVENT_TYPE.GO_MAIN, this.GoMainScene);
     }
 }

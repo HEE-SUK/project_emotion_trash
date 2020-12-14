@@ -154,19 +154,19 @@ public class EnemyCtrl : MonoBehaviour
                 break;
 
             case EnemyType.goblin:
-                enemyHp = 3;
+                enemyHp = 2;
                 movePower = 3;
                 //cc.radius = 5;
                 break;
 
             case EnemyType.bet:
-                enemyHp = 7;
+                enemyHp = 2;
                 movePower = 3;
                 //cc.radius = 5;
                 break;
 
             case EnemyType.earthWorm:
-                enemyHp = 8;
+                enemyHp = 2;
                 movePower = 0;
                 //cc.radius = 5;
                 break;
@@ -178,7 +178,7 @@ public class EnemyCtrl : MonoBehaviour
                 break;
 
             case EnemyType.ghost:
-                enemyHp = 7;
+                enemyHp = 2;
                 movePower = 3;
                 //cc.radius = 5;
                 break;
